@@ -1,0 +1,6 @@
+{
+  "name": "Natan e o Direito - Material Premium",
+  "description": "Página de vendas premium para materiais de Direito: Ciências Políticas, Teoria do Estado e Constitucional I. Focado em calouros.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
