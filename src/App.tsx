@@ -468,6 +468,51 @@ const TargetAudience = () => (
   </section>
 );
 
+const VideoFeedbacks = () => {
+  return (
+    <section className="py-16 md:py-24 lg:py-32 px-6 bg-zinc-950/70 relative overflow-hidden">
+      
+      {/* Glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-amber-500/10 blur-[120px] rounded-full pointer-events-none" />
+
+      <div className="max-w-4xl mx-auto relative z-10 text-center">
+
+        <div className="flex justify-center mb-6">
+          <Badge>
+            <ShieldCheck size={14} />
+            Feedback Real
+          </Badge>
+        </div>
+
+        <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 leading-tight">
+          Feedback Real e{" "}
+          <span className="text-amber-400">Alerta contra Golpes</span>
+        </h2>
+
+        <p className="text-lg text-zinc-400 mb-10">
+          Assiste esse feedback e tire suas conclusões
+        </p>
+
+        {/* VIDEO */}
+        <div className="rounded-3xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-md shadow-[0_0_40px_rgba(251,191,36,0.10)] aspect-[9/16] max-w-[320px] mx-auto">
+          <iframe
+            src="https://www.youtube.com/embed/HkFy9iBS5Gc?si=cIHtbZ7GlO96O9yc"
+            title="Feedback real"
+            className="w-full h-full"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
+
+        <p className="text-zinc-500 text-sm italic mt-8 max-w-md mx-auto">
+          Esse é um relato real de aluno. Assista com atenção antes de decidir.
+        </p>
+
+      </div>
+    </section>
+  );
+};
+
 const Pricing = () => (
   <section id="pricing" className="py-16 md:py-24 lg:py-32 px-6 relative">
     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-amber-500/10 rounded-full blur-[200px] pointer-events-none" />
@@ -716,6 +761,7 @@ export default function App() {
         <WhatYouWillLearn />
         <Bonus />
         <SocialProof />
+        <VideoFeedbacks />
         <TargetAudience />
         
         {/* Horizontal Scroll Material Preview */}
@@ -732,7 +778,7 @@ export default function App() {
   "/material6.jpg"
 ]} />
         </section>
-
+        <VideoFeedbacks />
         <Pricing />
         <Objection />
         <DeliveryAndGuarantee />
