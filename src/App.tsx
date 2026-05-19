@@ -4,7 +4,7 @@
  */
 
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useTransform } from 'motion/react';
 import { 
   CheckCircle2, 
   ArrowRight, 
@@ -88,7 +88,7 @@ const Hero = () => {
     "/feedback4.png",
     "/feedback5.png",
     "/feedback6.png",
-    "/feedback7.png"
+    "/feedback7.png",
   ];
 
   // EBOOK
@@ -98,7 +98,7 @@ const Hero = () => {
     "/material3.jpg",
     "/material4.jpg",
     "/material5.jpg",
-    "/material6.jpg"
+    "/material6.jpg",
   ];
 
   // AUTOPLAY FEEDBACKS
@@ -131,9 +131,10 @@ const Hero = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="flex-1 text-center lg:text-left z-10 order-1 lg:order-none"
+        className="flex-1 text-center lg:text-left z-10"
       >
 
+        {/* BADGE */}
         <div className="flex items-center justify-center lg:justify-start gap-2 mb-6">
           <Badge>
             <Users size={14} />
@@ -141,6 +142,7 @@ const Hero = () => {
           </Badge>
         </div>
 
+        {/* TITULO */}
         <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 lg:mb-8 leading-[1.2] lg:leading-[1.1] tracking-tight">
           Aprenda Ciências Políticas, Teoria do Estado e Constitucional I em apenas{" "}
           <span className="text-amber-400">
@@ -148,24 +150,31 @@ const Hero = () => {
           </span>
         </h1>
 
+        {/* SUBTITULO */}
         <p className="text-lg lg:text-xl text-zinc-400 mb-6 max-w-2xl mx-auto lg:mx-0">
           Entenda o essencial das disciplinas que formam a base do Direito com clareza, lógica e exemplos práticos.
         </p>
 
-        {/* CARROSSEL EBOOK MOBILE */}
+        {/* CARROSSEL MOBILE */}
         <div className="block lg:hidden mb-8">
+
           <div className="relative aspect-[4/5] w-full max-w-[320px] mx-auto rounded-2xl overflow-hidden bg-white/5 backdrop-blur-md border border-white/10 shadow-[0_0_50px_rgba(251,191,36,0.1)]">
 
             <AnimatePresence mode="wait">
-              <motion.img
+              <motion.div
                 key={ebookSlide}
-                src={ebookSlides[ebookSlide]}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.8 }}
-                className="w-full h-full object-cover"
-              />
+                className="absolute inset-0"
+              >
+                <img
+                  src={ebookSlides[ebookSlide]}
+                  alt=""
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
             </AnimatePresence>
 
             <div className="absolute inset-0 bg-black/10" />
@@ -179,16 +188,19 @@ const Hero = () => {
           </div>
         </div>
 
+        {/* TEXTO GARANTIA */}
         <p className="text-base lg:text-lg text-amber-400/80 mb-8 lg:mb-10 font-medium">
           Garanta hoje acesso imediato + bônus exclusivos + 7 dias de garantia.
         </p>
 
+        {/* BADGES */}
         <div className="flex flex-wrap justify-center lg:justify-start gap-2 mb-10 lg:mb-12">
           <Badge><Zap size={12} /> Acesso rápido</Badge>
           <Badge><CheckCircle2 size={12} /> Simplificado</Badge>
           <Badge><BookOpen size={12} /> Iniciantes</Badge>
         </div>
 
+        {/* BOTÕES */}
         <div className="flex flex-col sm:flex-row gap-4 items-center lg:items-start w-full sm:w-auto">
 
           <GoldButton
@@ -218,28 +230,33 @@ const Hero = () => {
         </div>
       </motion.div>
 
-      {/* DESKTOP */}
+      {/* CARROSÉIS DESKTOP */}
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="hidden lg:flex flex-1 w-full relative mt-8 lg:mt-0 flex-col gap-8 order-2 lg:order-none"
+        className="hidden lg:flex flex-1 w-full relative mt-8 lg:mt-0 flex-col gap-8"
       >
 
         {/* FEEDBACKS */}
         <div className="relative aspect-[4/5] w-full max-w-md mx-auto rounded-2xl overflow-hidden bg-white/5 backdrop-blur-md border border-white/10 shadow-[0_0_50px_rgba(251,191,36,0.1)]">
 
           <AnimatePresence mode="wait">
-            <motion.img
+            <motion.div
               key={currentSlide}
-              src={slides[currentSlide]}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.8 }}
-              className="w-full h-full object-cover"
-            />
+              className="absolute inset-0"
+            >
+              <img
+                src={slides[currentSlide]}
+                alt=""
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
           </AnimatePresence>
 
           <div className="absolute inset-0 bg-black/10" />
@@ -252,19 +269,24 @@ const Hero = () => {
 
         </div>
 
-        {/* EBOOK */}
+        {/* MATERIAL */}
         <div className="relative aspect-[4/5] w-full max-w-md mx-auto rounded-2xl overflow-hidden bg-white/5 backdrop-blur-md border border-white/10 shadow-[0_0_50px_rgba(251,191,36,0.1)]">
 
           <AnimatePresence mode="wait">
-            <motion.img
+            <motion.div
               key={ebookSlide}
-              src={ebookSlides[ebookSlide]}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.8 }}
-              className="w-full h-full object-cover"
-            />
+              className="absolute inset-0"
+            >
+              <img
+                src={ebookSlides[ebookSlide]}
+                alt=""
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
           </AnimatePresence>
 
           <div className="absolute inset-0 bg-black/10" />
