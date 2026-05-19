@@ -78,42 +78,107 @@ const CarouselInfinite = ({ images, speed = 30 }: { images: string[], speed?: nu
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const slides = [
-  "/feedback1.png",
-  "/feedback2.png",
-  "/feedback3.png",
-  "/feedback4.png",
-  "/feedback5.png",
-  "/feedback6.png",
-  "/feedback7.png"
-];
+  const [ebookSlide, setEbookSlide] = useState(0);
 
+  // FEEDBACKS
+  const slides = [
+    "/feedback1.png",
+    "/feedback2.png",
+    "/feedback3.png",
+    "/feedback4.png",
+    "/feedback5.png",
+    "/feedback6.png",
+    "/feedback7.png"
+  ];
+
+  // EBOOK
+  const ebookSlides = [
+    "/material1.jpg",
+    "/material2.jpg",
+    "/material3.jpg",
+    "/material4.jpg",
+    "/material5.jpg",
+    "/material6.jpg"
+  ];
+
+  // AUTOPLAY FEEDBACKS
   useEffect(() => {
-    const timer = setInterval(() => setCurrentSlide((prev) => (prev + 1) % slides.length), 4000);
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 3500);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  // AUTOPLAY EBOOK
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setEbookSlide((prev) => (prev + 1) % ebookSlides.length);
+    }, 3000);
+
     return () => clearInterval(timer);
   }, []);
 
   return (
     <section className="relative min-h-[90vh] lg:min-h-screen pt-16 pb-12 lg:pt-32 lg:pb-20 px-6 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
-      {/* Background Glows */}
+
+      {/* Background Glow */}
       <div className="absolute top-[-10%] right-[-10%] w-[300px] lg:w-[500px] h-[300px] lg:h-[500px] bg-amber-500/10 rounded-full blur-[80px] lg:blur-[120px] pointer-events-none" />
-      
-      <motion.div 
+
+      {/* TEXTO */}
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="flex-1 text-center lg:text-left z-10"
+        className="flex-1 text-center lg:text-left z-10 order-1 lg:order-none"
       >
+
         <div className="flex items-center justify-center lg:justify-start gap-2 mb-6">
-          <Badge><Users size={14} /> +400 calouros já começaram</Badge>
+          <Badge>
+            <Users size={14} />
+            +400 calouros já começaram
+          </Badge>
         </div>
+
         <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 lg:mb-8 leading-[1.2] lg:leading-[1.1] tracking-tight">
-          Aprenda Ciências Políticas, Teoria do Estado e Constitucional I em apenas <span className="text-amber-400">1 dia de leitura.</span>
+          Aprenda Ciências Políticas, Teoria do Estado e Constitucional I em apenas{" "}
+          <span className="text-amber-400">
+            1 dia de leitura.
+          </span>
         </h1>
+
         <p className="text-lg lg:text-xl text-zinc-400 mb-6 max-w-2xl mx-auto lg:mx-0">
           Entenda o essencial das disciplinas que formam a base do Direito com clareza, lógica e exemplos práticos.
         </p>
+
+        {/* CARROSSEL EBOOK MOBILE */}
+        <div className="block lg:hidden mb-8">
+          <div className="relative aspect-[4/5] w-full max-w-[320px] mx-auto rounded-2xl overflow-hidden bg-white/5 backdrop-blur-md border border-white/10 shadow-[0_0_50px_rgba(251,191,36,0.1)]">
+
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={ebookSlide}
+                src={ebookSlides[ebookSlide]}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.8 }}
+                className="w-full h-full object-cover"
+              />
+            </AnimatePresence>
+
+            <div className="absolute inset-0 bg-black/10" />
+
+            <div className="absolute top-4 left-4">
+              <span className="bg-amber-400 text-black text-xs font-bold px-3 py-1 rounded-full">
+                MATERIAL INTERNO
+              </span>
+            </div>
+
+          </div>
+        </div>
+
         <p className="text-base lg:text-lg text-amber-400/80 mb-8 lg:mb-10 font-medium">
           Garanta hoje acesso imediato + bônus exclusivos + 7 dias de garantia.
         </p>
@@ -125,30 +190,46 @@ const Hero = () => {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 items-center lg:items-start w-full sm:w-auto">
-          <GoldButton 
+
+          <GoldButton
             className="w-full sm:w-auto text-base sm:text-lg"
-            onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() =>
+              document.getElementById("pricing")?.scrollIntoView({
+                behavior: "smooth",
+              })
+            }
           >
-            GARANTIR MATERIAL — R$ 12,90 <ArrowRight size={20} />
+            GARANTIR MATERIAL — R$ 12,90
+            <ArrowRight size={20} />
           </GoldButton>
-          <GoldButton 
-            secondary 
+
+          <GoldButton
+            secondary
             className="w-full sm:w-auto text-base sm:text-lg"
-            onClick={() => document.getElementById('combo-offer')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() =>
+              document.getElementById("combo-offer")?.scrollIntoView({
+                behavior: "smooth",
+              })
+            }
           >
             QUERO O COMBO COMPLETO
           </GoldButton>
+
         </div>
       </motion.div>
 
-      <motion.div 
+      {/* DESKTOP */}
+      <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="flex-1 w-full relative mt-8 lg:mt-0"
+        className="hidden lg:flex flex-1 w-full relative mt-8 lg:mt-0 flex-col gap-8 order-2 lg:order-none"
       >
-        <div className="relative aspect-[4/5] sm:aspect-square lg:aspect-[4/5] w-full max-w-[320px] sm:max-w-sm lg:max-w-md mx-auto rounded-2xl overflow-hidden glass-morphism border border-white/10 shadow-[0_0_50px_rgba(251,191,36,0.1)]">
+
+        {/* FEEDBACKS */}
+        <div className="relative aspect-[4/5] w-full max-w-md mx-auto rounded-2xl overflow-hidden bg-white/5 backdrop-blur-md border border-white/10 shadow-[0_0_50px_rgba(251,191,36,0.1)]">
+
           <AnimatePresence mode="wait">
             <motion.img
               key={currentSlide}
@@ -156,140 +237,50 @@ const Hero = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 1 }}
+              transition={{ duration: 0.8 }}
               className="w-full h-full object-cover"
             />
           </AnimatePresence>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-          <div className="absolute bottom-6 left-6 right-6">
-            <div className="flex items-center gap-1 text-amber-400 mb-2">
-              <Star size={14} fill="currentColor" />
-              <Star size={14} fill="currentColor" />
-              <Star size={14} fill="currentColor" />
-              <Star size={14} fill="currentColor" />
-              <Star size={14} fill="currentColor" />
-            </div>
-            <p className="text-white font-medium italic">"Me salvou nas primeiras semanas. Tudo que o professor não explicou, o Natan facilitou."</p>
+
+          <div className="absolute inset-0 bg-black/10" />
+
+          <div className="absolute top-4 left-4">
+            <span className="bg-amber-400 text-black text-xs font-bold px-3 py-1 rounded-full">
+              FEEDBACKS
+            </span>
           </div>
+
         </div>
+
+        {/* EBOOK */}
+        <div className="relative aspect-[4/5] w-full max-w-md mx-auto rounded-2xl overflow-hidden bg-white/5 backdrop-blur-md border border-white/10 shadow-[0_0_50px_rgba(251,191,36,0.1)]">
+
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={ebookSlide}
+              src={ebookSlides[ebookSlide]}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.8 }}
+              className="w-full h-full object-cover"
+            />
+          </AnimatePresence>
+
+          <div className="absolute inset-0 bg-black/10" />
+
+          <div className="absolute top-4 left-4">
+            <span className="bg-amber-400 text-black text-xs font-bold px-3 py-1 rounded-full">
+              MATERIAL INTERNO
+            </span>
+          </div>
+
+        </div>
+
       </motion.div>
     </section>
   );
 };
-
-const Problem = () => (
-  <section className="py-16 md:py-24 lg:py-32 px-6 bg-zinc-950/50">
-    <div className="max-w-7xl mx-auto text-center">
-      <motion.h2 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="text-3xl md:text-5xl font-bold text-white mb-12 lg:mb-20"
-      >
-        Por que tantos calouros se sentem <span className="text-amber-400 underline underline-offset-8 decoration-amber-400/30 font-serif">perdidos</span> no início do Direito?
-      </motion.h2>
-
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {[
-          {
-            icon: <HelpCircle className="text-amber-400" />,
-            title: "Excesso de conceitos abstratos",
-            desc: "O aluno entra em contato com teorias complexas antes mesmo de entender a lógica básica do Direito."
-          },
-          {
-            icon: <MessageCircle className="text-amber-400" />,
-            title: "Linguagem jurídica difícil",
-            desc: "Os professores utilizam termos técnicos e conceitos complicados logo nas primeiras semanas."
-          },
-          {
-            icon: <Clock className="text-amber-400" />,
-            title: "Sensação constante de atraso",
-            desc: "Sem método e organização, o estudante sente que está sempre tentando alcançar o restante da turma."
-          },
-          {
-            icon: <AlertCircle className="text-amber-400" />,
-            title: "Falta de clareza",
-            desc: "O aluno tenta decorar conteúdos sem realmente compreender a estrutura do Direito."
-          }
-        ].map((item, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.1 }}
-          >
-            <GlassCard className="h-full text-left">
-              <div className="mb-4">{item.icon}</div>
-              <h3 className="text-xl font-bold text-white mb-3 tracking-tight">{item.title}</h3>
-              <p className="text-zinc-400 leading-relaxed">{item.desc}</p>
-            </GlassCard>
-          </motion.div>
-        ))}
-      </div>
-
-      <motion.p 
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        className="mt-20 text-2xl text-amber-400 italic font-medium"
-      >
-        “O problema não é falta de inteligência. É falta de direção.”
-      </motion.p>
-    </div>
-  </section>
-);
-
-const Solution = () => (
-  <section className="py-16 md:py-24 lg:py-32 px-6 relative overflow-hidden">
-    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-amber-500/5 rounded-full blur-[150px] pointer-events-none" />
-    <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-      <motion.div 
-        initial={{ opacity: 0, scale: 0.9 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        className="flex-1 w-full max-w-sm lg:max-w-none"
-      >
-        <div className="relative group">
-          <div className="absolute inset-0 bg-amber-500/20 rounded-2xl blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-          <img 
-            src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&q=80&w=800" 
-            alt="Ebook Preview" 
-            className="relative rounded-2xl shadow-2xl border border-white/10"
-          />
-        </div>
-      </motion.div>
-
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="flex-1 text-left"
-      >
-        <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">O que muda quando você aprende o Direito da <span className="text-amber-400">forma certa?</span></h2>
-        <p className="text-xl text-zinc-400 mb-10">O Direito Simplificado organiza os conteúdos essenciais do início da faculdade em uma sequência lógica, prática e fácil de entender.</p>
-        
-        <div className="grid sm:grid-cols-2 gap-6">
-          {[
-            "Você entende antes de decorar",
-            "Aprende com lógica",
-            "Consegue acompanhar as aulas",
-            "Faz revisões rápidas",
-            "Cria uma base forte",
-            "Estuda com mais confiança"
-          ].map((benefit, i) => (
-            <div key={i} className="flex items-start gap-3">
-              <div className="mt-1 bg-amber-400/20 p-1 rounded-full text-amber-400">
-                <CheckCircle2 size={16} />
-              </div>
-              <span className="text-lg text-white font-medium">{benefit}</span>
-            </div>
-          ))}
-        </div>
-      </motion.div>
-    </div>
-  </section>
-);
 
 const WhatYouWillLearn = () => (
   <section className="py-16 md:py-24 lg:py-32 px-6 bg-zinc-950/80">
