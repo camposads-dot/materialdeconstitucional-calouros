@@ -499,9 +499,15 @@ const Pricing = () => (
                 ))}
               </ul>
             </div>
-            <GoldButton secondary className="w-full">
-              COMPRAR MATERIAL INDIVIDUAL
-            </GoldButton>
+            <GoldButton
+  secondary
+  className="w-full"
+  onClick={() =>
+    window.open("https://pay.cakto.com.br/bysbyw7_890868", "_blank")
+  }
+>
+  COMPRAR MATERIAL INDIVIDUAL
+</GoldButton>
           </GlassCard>
         </motion.div>
 
@@ -540,9 +546,14 @@ const Pricing = () => (
                 ))}
               </div>
             </div>
-            <GoldButton className="w-full mt-10">
-              GARANTIR COMBO COMPLETO
-            </GoldButton>
+            <GoldButton
+  className="w-full mt-10"
+  onClick={() =>
+    window.open("https://pay.cakto.com.br/33wuu35", "_blank")
+  }
+>
+  GARANTIR COMBO COMPLETO
+</GoldButton>
           </div>
         </motion.div>
       </div>
@@ -647,7 +658,7 @@ const Bio = () => (
       <div className="relative shrink-0">
         <div className="absolute inset-0 bg-amber-400/20 blur-3xl rounded-full" />
         <div className="w-48 h-48 lg:w-64 lg:h-64 rounded-full overflow-hidden border-4 border-amber-400/20 relative shadow-2xl mx-auto">
-          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400" alt="Natan Campos" className="w-full h-full object-cover" />
+          <img src="/perfil.png" alt="Natan Campos" className="w-full h-full object-cover" />
         </div>
       </div>
       <div className="flex-1">
