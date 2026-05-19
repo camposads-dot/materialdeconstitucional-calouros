@@ -390,44 +390,57 @@ const Bonus = () => (
 );
 
 const SocialProof = () => {
-  const testimonials = [
-    "Me ajudou muito no primeiro semestre!",
-    "O Natan explica melhor que meu professor de Teoria do Estado.",
-    "Material direto ao ponto. Sem enrolação.",
-    "Vale cada centavo, economizei horas de xerox.",
-    "Finalmente entendi o que é Poder Constituinte.",
-    "Recomendo para todo calouro que entra.",
-    "A didática é incrível, parabéns!"
+  const feedbacks = [
+    "/feedback1.png",
+    "/feedback2.png",
+    "/feedback3.png",
+    "/feedback4.png",
+    "/feedback5.png",
+    "/feedback6.png",
+    "/feedback7.png"
   ];
 
   return (
     <section className="py-16 md:py-24 lg:py-32 px-4 sm:px-6 bg-zinc-950/50 overflow-hidden shrink-0">
-      <div className="max-w-7xl mx-auto text-center mb-12 lg:mb-16">
-        <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">O QUE OS CALOUROS ACHAM?</h2>
-        <p className="text-zinc-400">Veja feedbacks reais de estudantes que começaram a entender o Direito de verdade.</p>
-      </div>
       
-      <div className="overflow-hidden relative mask-edge-h">
-        <motion.div 
-          className="flex gap-6 py-6"
+      <div className="max-w-7xl mx-auto text-center mb-12 lg:mb-16">
+        <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
+          O QUE OS CALOUROS ACHAM?
+        </h2>
+
+        <p className="text-zinc-400">
+          Veja feedbacks reais de estudantes que começaram a entender o Direito de verdade.
+        </p>
+      </div>
+
+      <div className="overflow-hidden relative">
+        <motion.div
+          className="flex gap-6 py-4"
           animate={{ x: ["0%", "-50%"] }}
-          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+          transition={{
+            duration: 35,
+            repeat: Infinity,
+            ease: "linear",
+          }}
           style={{ width: "fit-content" }}
         >
-          {[...testimonials, ...testimonials].map((text, i) => (
-            <GlassCard key={i} className="min-w-[260px] sm:min-w-[300px] text-left border-amber-400/10">
-              <div className="flex text-amber-400 mb-3 gap-1">
-                {[...Array(5)].map((_, j) => <Star key={j} size={14} fill="currentColor" />)}
-              </div>
-              <p className="text-white font-medium italic">"{text}"</p>
-              <div className="mt-4 flex items-center gap-2">
-                <div className="w-8 h-8 rounded-full bg-zinc-800" />
-                <span className="text-xs text-zinc-500">Estudante de Direito</span>
-              </div>
-            </GlassCard>
+          {[...feedbacks, ...feedbacks].map((img, i) => (
+            <div
+              key={i}
+              className="min-w-[260px] sm:min-w-[320px] md:min-w-[360px] 
+              rounded-2xl overflow-hidden border border-white/10 
+              bg-white/5 backdrop-blur-md shadow-[0_0_40px_rgba(251,191,36,0.08)]"
+            >
+              <img
+                src={img}
+                alt={`Feedback ${i + 1}`}
+                className="w-full h-full object-cover"
+              />
+            </div>
           ))}
         </motion.div>
       </div>
+
     </section>
   );
 };
