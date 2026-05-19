@@ -703,12 +703,13 @@ export default function App() {
             <h2 className="text-2xl lg:text-3xl font-bold text-white mb-4">Veja por dentro</h2>
           </div>
           <CarouselInfinite images={[
-            "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=400",
-            "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&q=80&w=400",
-            "https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&q=80&w=400",
-            "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&q=80&w=400",
-            "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&q=80&w=400"
-          ]} />
+  "/material1.jpg",
+  "/material2.jpg",
+  "/material3.jpg",
+  "/material4.jpg",
+  "/material5.jpg",
+  "/material6.jpg"
+]} />
         </section>
 
         <Pricing />
