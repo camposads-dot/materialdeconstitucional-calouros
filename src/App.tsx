@@ -3,8 +3,8 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, useScroll, useTransform } from 'motion/react';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
   CheckCircle2, 
   ArrowRight, 
@@ -20,10 +20,6 @@ import {
   MessageCircle,
   Download,
   Lock,
-  Clock,
-  AlertCircle,
-  HelpCircle,
-  XCircle
 } from 'lucide-react';
 
 // --- Components ---
@@ -727,8 +723,6 @@ export default function App() {
     <div className="bg-black text-zinc-300 font-sans selection:bg-amber-400 selection:text-black scroll-smooth overflow-x-hidden relative w-full">
       <main className="overflow-x-hidden">
         <Hero />
-        <Problem />
-        <Solution />
         <WhatYouWillLearn />
         <Bonus />
         <SocialProof />
