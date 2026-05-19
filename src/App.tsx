@@ -580,7 +580,17 @@ const Objection = () => (
         </div>
       </div>
       <p className="text-sm lg:text-base text-zinc-500 mb-8 lg:mb-10">Sem mensalidade. Sem pegadinhas. Sem letras miúdas.</p>
-      <GoldButton secondary className="mx-auto w-full sm:w-auto">OK! ME CONVENCEU</GoldButton>
+      <GoldButton
+  secondary
+  className="mx-auto w-full sm:w-auto"
+  onClick={() =>
+    document.getElementById("pricing")?.scrollIntoView({
+      behavior: "smooth",
+    })
+  }
+>
+  OK! ME CONVENCEU
+</GoldButton>
     </div>
   </section>
 );
