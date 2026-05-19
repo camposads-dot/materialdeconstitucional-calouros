@@ -88,17 +88,17 @@ const Hero = () => {
     "/feedback4.png",
     "/feedback5.png",
     "/feedback6.png",
-    "/feedback7.png",
+    "/feedback7.png"
   ];
 
-  // EBOOK
+  // EBOOKS
   const ebookSlides = [
     "/material1.jpg",
     "/material2.jpg",
     "/material3.jpg",
     "/material4.jpg",
     "/material5.jpg",
-    "/material6.jpg",
+    "/material6.jpg"
   ];
 
   // AUTOPLAY FEEDBACKS
@@ -122,7 +122,7 @@ const Hero = () => {
   return (
     <section className="relative min-h-[90vh] lg:min-h-screen pt-16 pb-12 lg:pt-32 lg:pb-20 px-6 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
 
-      {/* Background Glow */}
+      {/* BG GLOW */}
       <div className="absolute top-[-10%] right-[-10%] w-[300px] lg:w-[500px] h-[300px] lg:h-[500px] bg-amber-500/10 rounded-full blur-[80px] lg:blur-[120px] pointer-events-none" />
 
       {/* TEXTO */}
@@ -133,7 +133,6 @@ const Hero = () => {
         transition={{ duration: 0.8 }}
         className="flex-1 text-center lg:text-left z-10"
       >
-
         {/* BADGE */}
         <div className="flex items-center justify-center lg:justify-start gap-2 mb-6">
           <Badge>
@@ -155,9 +154,8 @@ const Hero = () => {
           Entenda o essencial das disciplinas que formam a base do Direito com clareza, lógica e exemplos práticos.
         </p>
 
-        {/* CARROSSEL MOBILE */}
+        {/* EBOOK MOBILE */}
         <div className="block lg:hidden mb-8">
-
           <div className="relative aspect-[4/5] w-full max-w-[320px] mx-auto rounded-2xl overflow-hidden bg-white/5 backdrop-blur-md border border-white/10 shadow-[0_0_50px_rgba(251,191,36,0.1)]">
 
             <AnimatePresence mode="wait">
@@ -171,7 +169,7 @@ const Hero = () => {
               >
                 <img
                   src={ebookSlides[ebookSlide]}
-                  alt=""
+                  alt="Material interno"
                   className="w-full h-full object-cover"
                 />
               </motion.div>
@@ -184,11 +182,10 @@ const Hero = () => {
                 MATERIAL INTERNO
               </span>
             </div>
-
           </div>
         </div>
 
-        {/* TEXTO GARANTIA */}
+        {/* TEXTO MENOR */}
         <p className="text-base lg:text-lg text-amber-400/80 mb-8 lg:mb-10 font-medium">
           Garanta hoje acesso imediato + bônus exclusivos + 7 dias de garantia.
         </p>
@@ -230,7 +227,7 @@ const Hero = () => {
         </div>
       </motion.div>
 
-      {/* CARROSÉIS DESKTOP */}
+      {/* DESKTOP */}
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}
@@ -253,7 +250,7 @@ const Hero = () => {
             >
               <img
                 src={slides[currentSlide]}
-                alt=""
+                alt="Feedback"
                 className="w-full h-full object-cover"
               />
             </motion.div>
@@ -266,7 +263,6 @@ const Hero = () => {
               FEEDBACKS
             </span>
           </div>
-
         </div>
 
         {/* MATERIAL */}
@@ -283,7 +279,7 @@ const Hero = () => {
             >
               <img
                 src={ebookSlides[ebookSlide]}
-                alt=""
+                alt="Ebook"
                 className="w-full h-full object-cover"
               />
             </motion.div>
@@ -296,7 +292,6 @@ const Hero = () => {
               MATERIAL INTERNO
             </span>
           </div>
-
         </div>
 
       </motion.div>
