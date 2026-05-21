@@ -162,43 +162,6 @@ const Hero = () => {
                 className="w-full max-w-[580px] object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.65)]"
               />
 
-              {/* FEEDBACK FLOAT */}
-              <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                }}
-                className="
-                  absolute
-                  -bottom-3
-                  -left-2
-                  md:left-4
-                  w-[140px]
-                  md:w-[200px]
-                  rounded-2xl
-                  overflow-hidden
-                  border
-                  border-white/10
-                  shadow-2xl
-                  bg-zinc-900
-                "
-              >
-
-                <AnimatePresence mode="wait">
-                  <motion.img
-                    key={currentSlide}
-                    src={feedbackImages[currentSlide]}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.6 }}
-                    className="w-full object-cover"
-                  />
-                </AnimatePresence>
-
-              </motion.div>
-
             </div>
 
             {/* INFO */}
