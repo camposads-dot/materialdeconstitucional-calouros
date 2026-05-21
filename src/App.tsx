@@ -279,7 +279,7 @@ const Hero = () => {
         <div className="relative z-10">
 
           <img
-            src="/mockupof.png"
+            src="/constitucional1.png"
             alt="Material de Direito"
             className="
               w-full
