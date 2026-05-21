@@ -74,7 +74,6 @@ const CarouselInfinite = ({ images, speed = 30 }: { images: string[], speed?: nu
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [ebookSlide, setEbookSlide] = useState(0);
 
   // FEEDBACKS
   const slides = [
@@ -87,16 +86,6 @@ const Hero = () => {
     "/feedback7.png"
   ];
 
-  // EBOOK
-  const ebookSlides = [
-    "/material1.jpg",
-    "/material2.jpg",
-    "/material3.jpg",
-    "/material4.jpg",
-    "/material5.jpg",
-    "/material6.jpg"
-  ];
-
   // AUTOPLAY FEEDBACKS
   useEffect(() => {
     const timer = setInterval(() => {
@@ -106,19 +95,12 @@ const Hero = () => {
     return () => clearInterval(timer);
   }, []);
 
-  // AUTOPLAY EBOOK
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setEbookSlide((prev) => (prev + 1) % ebookSlides.length);
-    }, 3000);
-
-    return () => clearInterval(timer);
-  }, []);
-
   return (
-    <section className="relative min-h-[90vh] lg:min-h-screen pt-16 pb-12 lg:pt-32 lg:pb-20 px-6 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+    <section className="relative overflow-hidden min-h-[95vh] lg:min-h-screen pt-16 pb-14 lg:pt-28 lg:pb-20 px-6 max-w-[1400px] mx-auto flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
 
-      {/* Background Glow */}
+      {/* BACKGROUND */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(251,191,36,0.08),transparent_30%)] pointer-events-none" />
+
       <div className="absolute top-[-10%] right-[-10%] w-[300px] lg:w-[500px] h-[300px] lg:h-[500px] bg-amber-500/10 rounded-full blur-[80px] lg:blur-[120px] pointer-events-none" />
 
       {/* TEXTO */}
@@ -127,9 +109,10 @@ const Hero = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="flex-1 text-center lg:text-left z-10 order-1 lg:order-none"
+        className="flex-1 text-center lg:text-left z-10"
       >
 
+        {/* BADGE */}
         <div className="flex items-center justify-center lg:justify-start gap-2 mb-6">
           <Badge>
             <Users size={14} />
@@ -137,27 +120,114 @@ const Hero = () => {
           </Badge>
         </div>
 
-        <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 lg:mb-8 leading-[1.2] lg:leading-[1.1] tracking-tight">
-          Aprenda Ciências Políticas, Teoria do Estado e Constitucional I em apenas{" "}
+        {/* HEADLINE */}
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-[1.05] tracking-tight">
+          Entenda{" "}
           <span className="text-amber-400">
-            1 dia de leitura.
-          </span>
+            Ciências Políticas,
+            <br />
+            Teoria do Estado
+          </span>{" "}
+          e Constitucional I
+          <br />
+          sem linguagem complicada.
         </h1>
 
-        <p className="text-lg lg:text-xl text-zinc-400 mb-6 max-w-2xl mx-auto lg:mx-0">
-          Entenda o essencial das disciplinas que formam a base do Direito com clareza, lógica e exemplos práticos.
+        {/* SUBTITLE */}
+        <p className="text-lg lg:text-2xl text-zinc-300 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+          Um material visual e simplificado criado para calouros de Direito
+          que querem finalmente entender a base das disciplinas iniciais
+          sem depender de explicações confusas.
         </p>
 
-        <p className="text-base lg:text-lg text-amber-400/80 mb-8 lg:mb-10 font-medium">
-          Garanta hoje acesso imediato + bônus exclusivos + 7 dias de garantia.
-        </p>
+        {/* MOCKUP MOBILE */}
+        <div className="lg:hidden mb-10 relative flex justify-center">
 
-        <div className="flex flex-wrap justify-center lg:justify-start gap-2 mb-10 lg:mb-12">
-          <Badge><Zap size={12} /> Acesso rápido</Badge>
-          <Badge><CheckCircle2 size={12} /> Simplificado</Badge>
-          <Badge><BookOpen size={12} /> Iniciantes</Badge>
+          <div className="absolute w-[280px] h-[280px] bg-amber-500/10 blur-[90px] rounded-full" />
+
+          <div className="relative">
+
+            <img
+              src="/mockupof.png"
+              alt="Material de Direito"
+              className="
+                w-full
+                max-w-[420px]
+                object-contain
+                drop-shadow-[0_20px_40px_rgba(0,0,0,0.55)]
+              "
+            />
+
+            {/* FEEDBACK */}
+            <motion.div
+              animate={{ y: [0, -8, 0] }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+              }}
+              className="
+                absolute
+                -bottom-4
+                -left-2
+                w-[140px]
+                rounded-2xl
+                overflow-hidden
+                border
+                border-white/10
+                shadow-2xl
+                bg-zinc-900
+              "
+            >
+
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={currentSlide}
+                  src={slides[currentSlide]}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.6 }}
+                  className="w-full object-cover"
+                />
+              </AnimatePresence>
+
+            </motion.div>
+
+          </div>
+
         </div>
 
+        {/* FRASE */}
+        <p className="text-zinc-400 italic text-sm md:text-base mb-8">
+          “Finalmente um material que explica Direito de forma que dá pra entender.”
+        </p>
+
+        {/* BENEFÍCIOS */}
+        <div className="flex flex-wrap justify-center lg:justify-start gap-3 mb-10">
+
+          <Badge>
+            <BookOpen size={12} />
+            Constitucional I
+          </Badge>
+
+          <Badge>
+            <CheckCircle2 size={12} />
+            Teoria do Estado
+          </Badge>
+
+          <Badge>
+            <Users size={12} />
+            Ciências Políticas
+          </Badge>
+
+          <Badge>
+            <Zap size={12} />
+            Feito para calouros
+          </Badge>
+
+        </div>
+
+        {/* CTA */}
         <div className="flex flex-col sm:flex-row gap-4 items-center lg:items-start w-full sm:w-auto">
 
           <GoldButton
@@ -168,7 +238,7 @@ const Hero = () => {
               })
             }
           >
-            GARANTIR MATERIAL — R$ 12,90
+            QUERO ACESSAR O MATERIAL
             <ArrowRight size={20} />
           </GoldButton>
 
@@ -181,72 +251,112 @@ const Hero = () => {
               })
             }
           >
-            QUERO O COMBO COMPLETO
+            LIBERAR TODAS AS DISCIPLINAS
           </GoldButton>
 
         </div>
+
+        {/* INFO */}
+        <p className="text-zinc-500 text-sm mt-4">
+          Acesso imediato • Garantia de 7 dias • Pagamento único
+        </p>
+
       </motion.div>
 
-      {/* CARDS */}
+      {/* MOCKUP DESKTOP */}
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="flex flex-1 w-full relative mt-8 lg:mt-0 flex-col gap-8 order-2 lg:order-none"
+        className="hidden lg:flex flex-1 w-full relative items-center justify-center"
       >
 
-        {/* FEEDBACKS */}
-        <div className="relative aspect-[4/5] w-full max-w-[320px] sm:max-w-sm lg:max-w-md mx-auto rounded-2xl overflow-hidden bg-white/5 backdrop-blur-md border border-white/10 shadow-[0_0_50px_rgba(251,191,36,0.1)]">
+        {/* Glow */}
+        <div className="absolute w-[500px] h-[500px] bg-amber-500/10 blur-[120px] rounded-full" />
 
-          <AnimatePresence mode="wait">
-            <motion.img
-              key={currentSlide}
-              src={slides[currentSlide]}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.8 }}
-              className="w-full h-full object-cover"
-            />
-          </AnimatePresence>
+        {/* MOCKUP */}
+        <div className="relative z-10">
 
-          <div className="absolute inset-0 bg-black/10" />
+          <img
+            src="/mockupof.png"
+            alt="Material de Direito"
+            className="
+              w-full
+              max-w-[720px]
+              object-contain
+              drop-shadow-[0_30px_60px_rgba(0,0,0,0.65)]
+            "
+          />
 
-          <div className="absolute top-4 left-4">
-            <span className="bg-amber-400 text-black text-xs font-bold px-3 py-1 rounded-full">
-              Feedback Real
-            </span>
-          </div>
+          {/* FEEDBACK FLOAT */}
+          <motion.div
+            animate={{ y: [0, -10, 0] }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+            }}
+            className="
+              absolute
+              -bottom-6
+              -left-6
+              md:-left-10
+              w-[180px]
+              md:w-[230px]
+              rounded-2xl
+              overflow-hidden
+              border
+              border-white/10
+              shadow-2xl
+              bg-zinc-900
+              backdrop-blur-sm
+            "
+          >
 
-        </div>
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={currentSlide}
+                src={slides[currentSlide]}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.6 }}
+                className="w-full object-cover"
+              />
+            </AnimatePresence>
 
-        {/* EBOOK */}
-        <div className="relative aspect-[4/5] w-full max-w-[320px] sm:max-w-sm lg:max-w-md mx-auto rounded-2xl overflow-hidden bg-white/5 backdrop-blur-md border border-white/10 shadow-[0_0_50px_rgba(251,191,36,0.1)]">
+          </motion.div>
 
-          <AnimatePresence mode="wait">
-            <motion.img
-              key={ebookSlide}
-              src={ebookSlides[ebookSlide]}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.8 }}
-              className="w-full h-full object-cover"
-            />
-          </AnimatePresence>
+          {/* MINI CARD */}
+          <div className="
+            absolute
+            top-4
+            right-0
+            md:right-2
+            bg-zinc-900/90
+            border
+            border-white/10
+            rounded-2xl
+            px-4
+            py-3
+            backdrop-blur-md
+            shadow-2xl
+          ">
 
-          <div className="absolute inset-0 bg-black/10" />
+            <p className="text-amber-400 text-xs font-bold uppercase tracking-widest mb-1">
+              Material Completo
+            </p>
 
-          <div className="absolute top-4 left-4">
-            <span className="bg-amber-400 text-black text-xs font-bold px-3 py-1 rounded-full">
-              Amostra do Material
-            </span>
+            <p className="text-white text-sm font-medium leading-relaxed max-w-[180px]">
+              Resumos visuais + mapas mentais + explicações simplificadas.
+            </p>
+
           </div>
 
         </div>
 
       </motion.div>
+
     </section>
   );
 };
