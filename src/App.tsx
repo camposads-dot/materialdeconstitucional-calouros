@@ -73,55 +73,58 @@ const CarouselInfinite = ({ images, speed = 30 }: { images: string[], speed?: nu
 // --- Sections ---
 
 const Hero = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  // FEEDBACKS
-  const slides = [
+  const feedbackImages = [
     "/feedback1.png",
     "/feedback2.png",
     "/feedback3.png",
     "/feedback4.png",
     "/feedback5.png",
     "/feedback6.png",
-    "/feedback7.png"
+    "/feedback7.png",
   ];
+
+  const ebookImages = [
+    "/material1.jpg",
+    "/material2.jpg",
+    "/material3.jpg",
+  ];
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentPreview, setCurrentPreview] = useState(0);
 
   // AUTOPLAY FEEDBACKS
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
+      setCurrentSlide((prev) => (prev + 1) % feedbackImages.length);
     }, 3500);
 
     return () => clearInterval(timer);
   }, []);
 
   return (
-    <section className="relative overflow-hidden min-h-[95vh] lg:min-h-screen pt-16 pb-14 lg:pt-28 lg:pb-20 px-6 max-w-[1400px] mx-auto flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+    <section className="relative overflow-hidden pt-14 md:pt-24 pb-20 px-6 max-w-[1400px] mx-auto grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
-      {/* BACKGROUND */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(251,191,36,0.08),transparent_30%)] pointer-events-none" />
+      {/* GLOW */}
+      <div className="absolute top-0 left-1/4 -translate-x-1/2 w-[500px] h-[500px] bg-amber-600/10 blur-[120px] -z-10 rounded-full" />
 
-      <div className="absolute top-[-10%] right-[-10%] w-[300px] lg:w-[500px] h-[300px] lg:h-[500px] bg-amber-500/10 rounded-full blur-[80px] lg:blur-[120px] pointer-events-none" />
-
-      {/* TEXTO */}
+      {/* ESQUERDA */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
-        className="flex-1 text-center lg:text-left z-10"
+        className="relative z-10"
       >
 
         {/* BADGE */}
-        <div className="flex items-center justify-center lg:justify-start gap-2 mb-6">
-          <Badge>
-            <Users size={14} />
+        <div className="flex justify-center lg:justify-start mb-5">
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 text-amber-400 text-[11px] md:text-xs font-bold uppercase tracking-wider border border-amber-500/20">
+            <Users size={13} />
             +400 calouros já começaram
-          </Badge>
+          </span>
         </div>
 
         {/* HEADLINE */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-[1.05] tracking-tight">
+        <h1 className="text-[2.4rem] sm:text-5xl lg:text-7xl font-black leading-[1.02] tracking-tight text-center lg:text-left text-white">
           Entenda{" "}
           <span className="text-amber-400">
             Ciências Políticas,
@@ -133,223 +136,299 @@ const Hero = () => {
           sem linguagem complicada.
         </h1>
 
-        {/* SUBTITLE */}
-        <p className="text-lg lg:text-2xl text-zinc-300 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+        {/* SUB */}
+        <p className="text-base md:text-xl text-zinc-400 mt-6 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed text-center lg:text-left">
           Um material visual e simplificado criado para calouros de Direito
           que querem finalmente entender a base das disciplinas iniciais
           sem depender de explicações confusas.
         </p>
 
-        {/* MOCKUP MOBILE */}
-        <div className="lg:hidden mb-10 relative flex justify-center">
+        {/* MOCKUP */}
+        <div className="mb-8">
 
-          <div className="absolute w-[280px] h-[280px] bg-amber-500/10 blur-[90px] rounded-full" />
+          <p className="text-amber-500 text-xs md:text-sm font-bold uppercase tracking-widest mb-4 text-center lg:text-left">
+            O material que vai te ajudar a dominar o início do Direito
+          </p>
 
-          <div className="relative">
+          <div className="relative rounded-3xl border border-zinc-800 bg-zinc-900/60 backdrop-blur-sm overflow-hidden p-4 md:p-6">
 
-            <img
-              src="/mockupof.png"
-              alt="Material de Direito"
-              className="
-                w-full
-                max-w-[420px]
-                object-contain
-                drop-shadow-[0_20px_40px_rgba(0,0,0,0.55)]
-              "
-            />
+            <div className="absolute inset-0 bg-gradient-to-b from-amber-500/5 to-transparent pointer-events-none" />
 
-            {/* FEEDBACK */}
-            <motion.div
-              animate={{ y: [0, -8, 0] }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-              }}
-              className="
-                absolute
-                -bottom-4
-                -left-2
-                w-[140px]
-                rounded-2xl
-                overflow-hidden
-                border
-                border-white/10
-                shadow-2xl
-                bg-zinc-900
-              "
-            >
+            <div className="relative flex items-center justify-center">
 
-              <AnimatePresence mode="wait">
-                <motion.img
-                  key={currentSlide}
-                  src={slides[currentSlide]}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.6 }}
-                  className="w-full object-cover"
-                />
-              </AnimatePresence>
+              <img
+                src="/constitucional1.png"
+                alt="Mockup dos materiais de Direito"
+                className="w-full max-w-[580px] object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.65)]"
+              />
 
-            </motion.div>
+              {/* FEEDBACK FLOAT */}
+              <motion.div
+                animate={{ y: [0, -10, 0] }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                }}
+                className="
+                  absolute
+                  -bottom-3
+                  -left-2
+                  md:left-4
+                  w-[140px]
+                  md:w-[200px]
+                  rounded-2xl
+                  overflow-hidden
+                  border
+                  border-white/10
+                  shadow-2xl
+                  bg-zinc-900
+                "
+              >
+
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={currentSlide}
+                    src={feedbackImages[currentSlide]}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.6 }}
+                    className="w-full object-cover"
+                  />
+                </AnimatePresence>
+
+              </motion.div>
+
+            </div>
+
+            {/* INFO */}
+            <div className="mt-5 text-center lg:text-left">
+
+              <p className="text-zinc-200 font-semibold text-sm md:text-base leading-relaxed">
+                Acesso imediato ao material completo de{" "}
+                <span className="text-amber-400 font-extrabold">
+                  Ciências Políticas, Teoria do Estado e Constitucional I
+                </span>
+              </p>
+
+              <p className="text-zinc-500 text-xs md:text-sm mt-2 leading-relaxed">
+                Resumos visuais, esquemas simplificados e linguagem clara
+                para você aprender mais rápido.
+              </p>
+
+            </div>
 
           </div>
 
         </div>
 
-        {/* FRASE */}
-        <p className="text-zinc-400 italic text-sm md:text-base mb-8">
-          “Finalmente um material que explica Direito de forma que dá pra entender.”
-        </p>
+        {/* CARD INFO */}
+        <div className="p-4 md:p-5 rounded-3xl bg-zinc-900/60 border border-zinc-800 backdrop-blur-sm">
 
-        {/* BENEFÍCIOS */}
-        <div className="flex flex-wrap justify-center lg:justify-start gap-3 mb-10">
+          {/* TÍTULO */}
+          <div className="text-center lg:text-left">
 
-          <Badge>
-            <BookOpen size={12} />
-            Constitucional I
-          </Badge>
+            <p className="text-zinc-100 font-bold text-base md:text-lg leading-snug">
+              Pare de ficar perdido nas primeiras disciplinas de Direito.
+            </p>
 
-          <Badge>
-            <CheckCircle2 size={12} />
-            Teoria do Estado
-          </Badge>
+            <p className="text-zinc-500 text-xs md:text-sm mt-2">
+              Um atalho visual e simplificado para aprender mais rápido.
+            </p>
 
-          <Badge>
-            <Users size={12} />
-            Ciências Políticas
-          </Badge>
+          </div>
 
-          <Badge>
-            <Zap size={12} />
-            Feito para calouros
-          </Badge>
+          {/* BENEFÍCIOS */}
+          <div className="mt-5 space-y-3">
+
+            {[
+              "Explicações simples para finalmente entender o juridiquês",
+              "Esquemas visuais para memorizar mais rápido",
+              "Conteúdo direto ao ponto",
+              "Material pensado para iniciantes",
+              "Acesso imediato logo após a compra"
+            ].map((item, index) => (
+              <div
+                key={index}
+                className="flex items-start gap-3 bg-zinc-950/40 border border-zinc-800 rounded-2xl p-3"
+              >
+                <div className="w-5 h-5 rounded-full bg-amber-500/15 flex items-center justify-center shrink-0 mt-[2px]">
+                  <span className="text-amber-400 text-[11px]">✔</span>
+                </div>
+
+                <p className="text-sm text-zinc-300 leading-relaxed">
+                  {item}
+                </p>
+              </div>
+            ))}
+
+          </div>
+
+          {/* SOCIAL PROOF */}
+          <div className="mt-6 flex justify-center lg:justify-start">
+
+            <div className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 px-4 py-3 rounded-2xl">
+
+              <span className="text-base">🔥</span>
+
+              <p className="text-amber-300 text-xs sm:text-sm font-medium leading-relaxed">
+                Mais de 400 calouros já começaram Direito com mais clareza usando esse material.
+              </p>
+
+            </div>
+
+          </div>
+
+          {/* GARANTIAS */}
+          <div className="mt-5 flex flex-wrap items-center justify-center lg:justify-start gap-2">
+
+            <div className="flex items-center justify-center bg-zinc-900 border border-zinc-800 rounded-full px-3 py-2 text-zinc-400 text-xs">
+              ✔ Pagamento único
+            </div>
+
+            <div className="flex items-center justify-center bg-zinc-900 border border-zinc-800 rounded-full px-3 py-2 text-zinc-400 text-xs">
+              ✔ Acesso imediato
+            </div>
+
+            <div className="flex items-center justify-center bg-zinc-900 border border-zinc-800 rounded-full px-3 py-2 text-zinc-400 text-xs">
+              ✔ Garantia de 7 dias
+            </div>
+
+          </div>
 
         </div>
 
-        {/* CTA */}
-        <div className="flex flex-col sm:flex-row gap-4 items-center lg:items-start w-full sm:w-auto">
+        {/* BOTÕES */}
+        <div className="flex flex-col sm:flex-row gap-4 mt-6">
 
+          {/* MATERIAL */}
           <GoldButton
-            className="w-full sm:w-auto text-base sm:text-lg"
+            className="flex-1 min-h-[110px] flex flex-col items-center justify-center text-center"
             onClick={() =>
               document.getElementById("pricing")?.scrollIntoView({
                 behavior: "smooth",
               })
             }
           >
-            QUERO ACESSAR O MATERIAL
-            <ArrowRight size={20} />
+
+            <span className="text-lg font-black leading-tight">
+              Quero acessar
+              <br />
+              o material
+            </span>
+
+            <span className="text-sm text-white/70 mt-2">
+              Ciências Políticas + TGE + Constitucional I
+            </span>
+
+            <span className="text-3xl font-black mt-3">
+              R$ 12,90
+            </span>
+
           </GoldButton>
 
+          {/* COMBO */}
           <GoldButton
             secondary
-            className="w-full sm:w-auto text-base sm:text-lg"
+            className="flex-1 min-h-[110px] flex flex-col items-center justify-center text-center"
             onClick={() =>
               document.getElementById("combo-offer")?.scrollIntoView({
                 behavior: "smooth",
               })
             }
           >
-            LIBERAR TODAS AS DISCIPLINAS
+
+            <span className="text-lg font-black leading-tight">
+              Liberar todas
+              <br />
+              as disciplinas
+            </span>
+
+            <span className="text-sm text-zinc-400 mt-2">
+              Combo completo de Direito
+            </span>
+
+            <span className="text-3xl font-black text-white mt-3">
+              R$ 57,90
+            </span>
+
           </GoldButton>
 
         </div>
 
-        {/* INFO */}
-        <p className="text-zinc-500 text-sm mt-4">
-          Acesso imediato • Garantia de 7 dias • Pagamento único
-        </p>
-
       </motion.div>
 
-      {/* MOCKUP DESKTOP */}
+      {/* DIREITA */}
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
+        animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="hidden lg:flex flex-1 w-full relative items-center justify-center"
+        className="relative space-y-8"
       >
 
-        {/* Glow */}
-        <div className="absolute w-[500px] h-[500px] bg-amber-500/10 blur-[120px] rounded-full" />
+        {/* FEEDBACKS */}
+        <div className="relative bg-zinc-900 border border-zinc-800 rounded-3xl p-6 md:p-8 min-h-[400px] overflow-hidden">
 
-        {/* MOCKUP */}
-        <div className="relative z-10">
+          <h3 className="text-amber-500 font-bold text-sm md:text-base mb-4">
+            Veja os feedbacks reais dos alunos:
+          </h3>
 
-          <img
-            src="/constitucional1.png"
-            alt="Material de Direito"
-            className="
-              w-full
-              max-w-[720px]
-              object-contain
-              drop-shadow-[0_30px_60px_rgba(0,0,0,0.65)]
-            "
-          />
-
-          {/* FEEDBACK FLOAT */}
-          <motion.div
-            animate={{ y: [0, -10, 0] }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
+          <div
+            id="feedback-scroll"
+            onScroll={(e) => {
+              const scrollLeft = e.currentTarget.scrollLeft;
+              const width = e.currentTarget.offsetWidth;
+              setCurrentSlide(Math.round(scrollLeft / width));
             }}
-            className="
-              absolute
-              -bottom-6
-              -left-6
-              md:-left-10
-              w-[180px]
-              md:w-[230px]
-              rounded-2xl
-              overflow-hidden
-              border
-              border-white/10
-              shadow-2xl
-              bg-zinc-900
-              backdrop-blur-sm
-            "
+            className="flex overflow-x-auto snap-x snap-mandatory scroll-smooth scrollbar-hide"
           >
 
-            <AnimatePresence mode="wait">
-              <motion.img
-                key={currentSlide}
-                src={slides[currentSlide]}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.6 }}
-                className="w-full object-cover"
-              />
-            </AnimatePresence>
+            {feedbackImages.map((img, i) => (
+              <div
+                key={i}
+                className="min-w-full snap-center flex justify-center px-2"
+              >
+                <img
+                  src={img}
+                  alt=""
+                  className="rounded-2xl border border-zinc-800 max-h-[320px] object-cover"
+                />
+              </div>
+            ))}
 
-          </motion.div>
+          </div>
 
-          {/* MINI CARD */}
-          <div className="
-            absolute
-            top-4
-            right-0
-            md:right-2
-            bg-zinc-900/90
-            border
-            border-white/10
-            rounded-2xl
-            px-4
-            py-3
-            backdrop-blur-md
-            shadow-2xl
-          ">
+        </div>
 
-            <p className="text-amber-400 text-xs font-bold uppercase tracking-widest mb-1">
-              Material Completo
-            </p>
+        {/* PREVIEW */}
+        <div className="relative bg-zinc-900 border border-zinc-800 rounded-3xl p-6 md:p-8 min-h-[400px] overflow-hidden">
 
-            <p className="text-white text-sm font-medium leading-relaxed max-w-[180px]">
-              Resumos visuais + mapas mentais + explicações simplificadas.
-            </p>
+          <h3 className="text-amber-500 font-bold text-sm md:text-base mb-4">
+            Prévia do material:
+          </h3>
+
+          <div
+            id="ebook-scroll"
+            onScroll={(e) => {
+              const scrollLeft = e.currentTarget.scrollLeft;
+              const width = e.currentTarget.offsetWidth;
+              setCurrentPreview(Math.round(scrollLeft / width));
+            }}
+            className="flex overflow-x-auto snap-x snap-mandatory scroll-smooth scrollbar-hide"
+          >
+
+            {ebookImages.map((img, i) => (
+              <div
+                key={i}
+                className="min-w-full snap-center flex justify-center px-2"
+              >
+                <img
+                  src={img}
+                  alt=""
+                  className="rounded-2xl border border-zinc-800 max-h-[320px] object-cover"
+                />
+              </div>
+            ))}
 
           </div>
 
