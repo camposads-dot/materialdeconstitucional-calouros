@@ -104,20 +104,20 @@ const Hero = () => {
   const isMobile = useIsMobile();
 
   return (
-    <Section className="relative overflow-hidden pt-14 md:pt-24">
+    <Section className="relative overflow-hidden pt-10 md:pt-24 pb-16">
 
-      {/* BG GLOW */}
-      <div className="absolute top-0 left-1/3 -translate-x-1/2 w-[500px] h-[500px] bg-red-600/10 blur-[120px] rounded-full -z-10" />
+      {/* BG */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-red-600/10 blur-[140px] rounded-full -z-10" />
 
-      <div className="max-w-[1180px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1250px] mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* BADGE */}
-        <div className="flex justify-center mb-6">
-
+        <div className="flex justify-center mb-6 md:mb-10">
           <div className="
             inline-flex
             items-center
-            gap-2
+            justify-center
+            text-center
             px-4
             py-2
             rounded-full
@@ -125,84 +125,95 @@ const Hero = () => {
             border-red-500/20
             bg-red-500/10
             text-red-400
-            text-[11px]
+            text-[10px]
+            sm:text-xs
             font-bold
             uppercase
-            tracking-[0.2em]
+            tracking-[0.18em]
           ">
             +400 calouros começaram Direito com mais clareza
           </div>
-
         </div>
 
-        {/* HERO */}
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+        {/* GRID */}
+        <div className="grid lg:grid-cols-2 gap-14 lg:gap-16 items-center">
 
-          {/* ESQUERDA */}
+          {/* LEFT */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center lg:text-left"
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="w-full"
           >
 
             {/* HEADLINE */}
-            <h1 className="
-              text-[2.5rem]
-              sm:text-6xl
-              xl:text-7xl
-              font-black
-              leading-[0.98]
-              tracking-tight
-            ">
+            <div className="text-center lg:text-left">
 
-              Aprenda os{" "}
+              <h1 className="
+                text-[2.8rem]
+                sm:text-[4.3rem]
+                xl:text-[5.3rem]
+                font-black
+                leading-[0.92]
+                tracking-[-0.04em]
+                text-white
+                max-w-[850px]
+              ">
 
-              <span className="text-red-500">
-                Primeiros 6
+                Aprenda os{" "}
+
+                <span className="text-red-500">
+                  Primeiros 6
+                  <br />
+                  Meses
+                </span>
+
+                {" "}da Faculdade de Direito
                 <br />
-                Meses
-              </span>{" "}
 
-              da Faculdade de Direito
-              <br />
+                em apenas{" "}
 
-              em apenas{" "}
+                <span className="text-red-500">
+                  7 Dias
+                </span>
 
-              <span className="text-red-500">
-                7 Dias
-              </span>
+              </h1>
 
-            </h1>
+              <p className="
+                text-zinc-400
+                text-sm
+                sm:text-lg
+                leading-relaxed
+                mt-6
+                max-w-[620px]
+                mx-auto
+                lg:mx-0
+              ">
+                Um método direto e sem juridiquês para quem quer começar
+                o Direito com clareza, segurança e vantagem.
+              </p>
 
-            {/* SUB */}
-            <p className="
-              text-zinc-400
-              text-base
-              md:text-xl
-              leading-relaxed
-              mt-7
-              max-w-[700px]
-              mx-auto
-              lg:mx-0
+            </div>
+
+            {/* MOCKUP + VIDEO */}
+            <div className="
+              mt-10
+              grid
+              md:grid-cols-2
+              gap-5
+              items-start
             ">
-              Um método direto e sem juridiquês para quem quer começar
-              o Direito com clareza, segurança e vantagem.
-            </p>
 
-            {/* MOCKUP */}
-            <div className="mt-10">
-
+              {/* MOCKUP */}
               <div className="
                 relative
-                rounded-[32px]
+                rounded-[28px]
                 border
                 border-zinc-800
-                bg-zinc-900/60
+                bg-zinc-900/70
                 backdrop-blur-sm
                 overflow-hidden
                 p-4
-                md:p-6
               ">
 
                 <div className="absolute inset-0 bg-gradient-to-b from-red-500/5 to-transparent pointer-events-none" />
@@ -213,24 +224,97 @@ const Hero = () => {
                   className="
                     relative
                     w-full
-                    max-w-[720px]
-                    mx-auto
                     object-contain
-                    drop-shadow-[0_30px_60px_rgba(0,0,0,0.6)]
+                    drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)]
                   "
                 />
 
-                {/* INFO */}
-                <div className="mt-5 text-center lg:text-left">
+                <div className="mt-4 text-center md:text-left">
 
-                  <p className="text-zinc-100 font-semibold text-sm md:text-base">
-                    Acesso imediato ao guia completo do 1º semestre
+                  <p className="text-white font-semibold text-sm">
+                    Acesso imediato ao guia completo
                   </p>
 
-                  <p className="text-zinc-500 text-xs md:text-sm mt-2 leading-relaxed">
-                    Disciplinas organizadas de forma visual e simplificada
-                    para você finalmente entender o início do Direito.
+                  <p className="text-zinc-500 text-xs mt-2 leading-relaxed">
+                    Disciplinas organizadas de forma visual e simplificada.
                   </p>
+
+                </div>
+
+              </div>
+
+              {/* VIDEO */}
+              <div className="flex flex-col justify-center h-full">
+
+                <div className="text-center mb-5">
+
+                  <p className="
+                    text-red-500
+                    text-[10px]
+                    sm:text-xs
+                    font-bold
+                    uppercase
+                    tracking-[0.22em]
+                    mb-3
+                  ">
+                    Apresentação rápida
+                  </p>
+
+                  <h3 className="
+                    text-xl
+                    sm:text-3xl
+                    font-black
+                    text-white
+                    leading-tight
+                  ">
+
+                    Veja como o material funciona
+
+                    <span className="block text-red-500 mt-1">
+                      antes de começar
+                    </span>
+
+                  </h3>
+
+                  <p className="
+                    text-zinc-400
+                    text-xs
+                    sm:text-sm
+                    mt-4
+                    leading-relaxed
+                    max-w-[320px]
+                    mx-auto
+                  ">
+                    Um vídeo rápido mostrando a estrutura,
+                    organização e experiência do material.
+                  </p>
+
+                </div>
+
+                <div className="
+                  relative
+                  rounded-[28px]
+                  overflow-hidden
+                  border
+                  border-zinc-800
+                  bg-black
+                  shadow-2xl
+                ">
+
+                  <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="auto"
+                    className="
+                      w-full
+                      aspect-[9/16]
+                      object-cover
+                    "
+                  >
+                    <source src="/apresentacao.mp4" type="video/mp4" />
+                  </video>
 
                 </div>
 
@@ -239,15 +323,15 @@ const Hero = () => {
             </div>
 
             {/* PREVIEW */}
-            <div className="mt-10 overflow-hidden">
+            <div className="mt-12 overflow-hidden">
 
               <p className="
                 text-red-500
-                text-xs
-                md:text-sm
+                text-[10px]
+                sm:text-xs
                 font-bold
                 uppercase
-                tracking-[0.2em]
+                tracking-[0.22em]
                 mb-4
                 text-center
                 lg:text-left
@@ -283,7 +367,7 @@ const Hero = () => {
                     key={i}
                     className="
                       shrink-0
-                      rounded-[22px]
+                      rounded-[20px]
                       overflow-hidden
                       border
                       border-zinc-800
@@ -295,11 +379,11 @@ const Hero = () => {
                       src={img}
                       alt=""
                       className="
-                        w-[170px]
-                        h-[240px]
+                        w-[135px]
+                        h-[190px]
 
-                        sm:w-[210px]
-                        sm:h-[290px]
+                        sm:w-[180px]
+                        sm:h-[250px]
 
                         object-cover
                         object-top
@@ -321,10 +405,10 @@ const Hero = () => {
                 rounded-[28px]
                 border
                 border-zinc-800
-                bg-zinc-900/70
+                bg-zinc-900/80
                 backdrop-blur-sm
-                p-5
-                md:p-6
+                p-4
+                sm:p-6
               ">
 
                 <div className="
@@ -336,24 +420,24 @@ const Hero = () => {
                   gap-5
                 ">
 
-                  {/* PREÇO */}
+                  {/* PRICE */}
                   <div className="text-center md:text-left">
 
-                    <div className="flex items-center gap-3 justify-center md:justify-start">
+                    <div className="flex items-center gap-2 justify-center md:justify-start">
 
                       <span className="text-zinc-500 line-through text-sm">
                         DE R$97,00
                       </span>
 
-                      <span className="text-zinc-600 text-xs uppercase tracking-widest">
+                      <span className="text-zinc-600 text-[10px] uppercase tracking-[0.2em]">
                         por apenas
                       </span>
 
                     </div>
 
                     <div className="
-                      text-[2.5rem]
-                      md:text-6xl
+                      text-[2.2rem]
+                      sm:text-5xl
                       font-black
                       text-red-500
                       leading-none
@@ -362,25 +446,26 @@ const Hero = () => {
                       R$37,90
                     </div>
 
-                    <p className="text-zinc-500 text-xs mt-3">
+                    <p className="text-zinc-500 text-xs mt-2">
                       Pagamento único • Acesso imediato
                     </p>
 
                   </div>
 
-                  {/* BOTÃO */}
+                  {/* BUTTON */}
                   <GoldButton
-  className="
-    w-full
-    md:w-auto
-    min-w-[260px]
-    min-h-[72px]
-    text-lg
-    font-black
-  "
->
-  QUERO COMEÇAR DIREITO
-</GoldButton>
+                    className="
+                      w-full
+                      md:w-auto
+                      md:min-w-[280px]
+                      min-h-[64px]
+                      text-base
+                      font-black
+                    "
+                  >
+                    QUERO COMEÇAR DIREITO
+                  </GoldButton>
+
                 </div>
 
               </div>
@@ -389,97 +474,34 @@ const Hero = () => {
 
           </motion.div>
 
-          {/* DIREITA */}
+          {/* RIGHT SIDE DESKTOP */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative flex justify-center"
+            transition={{ duration: 0.8 }}
+            className="hidden lg:flex justify-center"
           >
 
-            <div className="
-              relative
-              w-full
-              max-w-[390px]
-            ">
+            <div className="relative w-full max-w-[460px]">
 
-              {/* GLOW */}
               <div className="
                 absolute
                 inset-0
                 bg-red-500/20
-                blur-[120px]
+                blur-[140px]
                 rounded-full
               " />
 
-              {/* TITULO VIDEO */}
-<div className="text-center mb-6">
-
-  <p className="
-    text-red-500
-    text-xs
-    md:text-sm
-    font-bold
-    uppercase
-    tracking-[0.2em]
-    mb-3
-  ">
-    Apresentação rápida
-  </p>
-
-  <h3 className="
-    text-2xl
-    md:text-4xl
-    font-black
-    text-white
-    leading-tight
-  ">
-
-    Veja como o material funciona
-    <span className="block text-red-500 mt-1">
-      antes de começar
-    </span>
-
-  </h3>
-
-  <p className="
-    text-zinc-400
-    text-sm
-    md:text-base
-    mt-4
-    max-w-[320px]
-    mx-auto
-    leading-relaxed
-  ">
-    Um vídeo rápido mostrando a estrutura,
-    organização e experiência do material.
-  </p>
-
-</div>
-
-              {/* VIDEO */}
-              <div className="
-                relative
-                rounded-[36px]
-                overflow-hidden
-                border
-                border-zinc-800
-                bg-black
-                shadow-2xl
-              ">
-
-                <video
-  autoPlay
-  muted
-  loop
-  playsInline
-  preload="auto"
-  className="w-full object-cover"
->
-                  <source src="/apresentacao.mp4" type="video/mp4" />
-                </video>
-
-              </div>
+              <img
+                src="/mockupebook1.png"
+                alt="Mockup"
+                className="
+                  relative
+                  w-full
+                  object-contain
+                  drop-shadow-[0_30px_70px_rgba(0,0,0,0.8)]
+                "
+              />
 
             </div>
 
