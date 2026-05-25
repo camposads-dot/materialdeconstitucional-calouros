@@ -104,20 +104,20 @@ const Hero = () => {
   const isMobile = useIsMobile();
 
   return (
-    <Section className="relative overflow-hidden pt-10 md:pt-24 pb-16">
+    <Section className="relative overflow-hidden pt-12 md:pt-24 pb-16">
 
       {/* BG */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-red-600/10 blur-[140px] rounded-full -z-10" />
 
-      <div className="max-w-[1250px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* BADGE */}
-        <div className="flex justify-center mb-6 md:mb-10">
+        <div className="flex justify-center mb-6">
+
           <div className="
             inline-flex
             items-center
             justify-center
-            text-center
             px-4
             py-2
             rounded-full
@@ -130,384 +130,251 @@ const Hero = () => {
             font-bold
             uppercase
             tracking-[0.18em]
+            text-center
           ">
             +400 calouros começaram Direito com mais clareza
           </div>
+
         </div>
 
-        {/* GRID */}
-        <div className="grid lg:grid-cols-2 gap-14 lg:gap-16 items-center">
+        {/* CONTEÚDO */}
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="text-center"
+        >
 
-          {/* LEFT */}
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            className="w-full"
-          >
+          {/* HEADLINE */}
+          <h1 className="
+            text-[2.7rem]
+            sm:text-[4.8rem]
+            lg:text-[6rem]
+            font-black
+            leading-[0.92]
+            tracking-[-0.05em]
+            text-white
+            max-w-[950px]
+            mx-auto
+          ">
 
-            {/* HEADLINE */}
-            <div className="text-center lg:text-left">
+            Aprenda os{" "}
 
-              <h1 className="
-                text-[2.8rem]
-                sm:text-[4.3rem]
-                xl:text-[5.3rem]
-                font-black
-                leading-[0.92]
-                tracking-[-0.04em]
-                text-white
-                max-w-[850px]
-              ">
+            <span className="text-red-500">
+              Primeiros 6
+              <br />
+              Meses
+            </span>
 
-                Aprenda os{" "}
+            {" "}da Faculdade de Direito
+            <br />
 
-                <span className="text-red-500">
-                  Primeiros 6
-                  <br />
-                  Meses
-                </span>
+            em apenas{" "}
 
-                {" "}da Faculdade de Direito
-                <br />
+            <span className="text-red-500">
+              7 Dias
+            </span>
 
-                em apenas{" "}
+          </h1>
 
-                <span className="text-red-500">
-                  7 Dias
-                </span>
+          {/* SUB */}
+          <p className="
+            text-zinc-400
+            text-sm
+            sm:text-xl
+            leading-relaxed
+            mt-6
+            max-w-[760px]
+            mx-auto
+          ">
+            Um método direto e sem juridiquês para quem quer começar
+            o Direito com clareza, segurança e vantagem.
+          </p>
 
-              </h1>
+          {/* MOCKUP */}
+          <div className="mt-10 md:mt-14 relative">
 
-              <p className="
-                text-zinc-400
-                text-sm
-                sm:text-lg
-                leading-relaxed
-                mt-6
-                max-w-[620px]
-                mx-auto
-                lg:mx-0
-              ">
-                Um método direto e sem juridiquês para quem quer começar
-                o Direito com clareza, segurança e vantagem.
-              </p>
-
-            </div>
-
-            {/* MOCKUP + VIDEO */}
             <div className="
-              mt-10
-              grid
-              md:grid-cols-2
-              gap-5
-              items-start
+              absolute
+              inset-0
+              bg-red-500/10
+              blur-[120px]
+              rounded-full
+            " />
+
+            <img
+              src="/mockupebook1.png"
+              alt="Mockup Ebook Direito"
+              className="
+                relative
+                w-full
+                max-w-[850px]
+                mx-auto
+                object-contain
+                drop-shadow-[0_40px_80px_rgba(0,0,0,0.8)]
+              "
+            />
+
+          </div>
+
+          {/* CTA */}
+          <div className="mt-10">
+
+            <div className="
+              max-w-[700px]
+              mx-auto
+              rounded-[28px]
+              border
+              border-zinc-800
+              bg-zinc-900/80
+              backdrop-blur-sm
+              p-5
+              md:p-7
             ">
 
-              {/* MOCKUP */}
               <div className="
-                relative
-                rounded-[28px]
-                border
-                border-zinc-800
-                bg-zinc-900/70
-                backdrop-blur-sm
-                overflow-hidden
-                p-4
+                flex
+                flex-col
+                md:flex-row
+                items-center
+                justify-between
+                gap-6
               ">
 
-                <div className="absolute inset-0 bg-gradient-to-b from-red-500/5 to-transparent pointer-events-none" />
+                {/* PREÇO */}
+                <div className="text-center md:text-left">
 
-                <img
-                  src="/mockupebook1.png"
-                  alt="Mockup Ebook Direito"
-                  className="
-                    relative
-                    w-full
-                    object-contain
-                    drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)]
-                  "
-                />
-
-                <div className="mt-4 text-center md:text-left">
-
-                  <p className="text-white font-semibold text-sm">
-                    Acesso imediato ao guia completo
-                  </p>
-
-                  <p className="text-zinc-500 text-xs mt-2 leading-relaxed">
-                    Disciplinas organizadas de forma visual e simplificada.
-                  </p>
-
-                </div>
-
-              </div>
-
-              {/* VIDEO */}
-              <div className="flex flex-col justify-center h-full">
-
-                <div className="text-center mb-5">
-
-                  <p className="
-                    text-red-500
-                    text-[10px]
-                    sm:text-xs
-                    font-bold
-                    uppercase
-                    tracking-[0.22em]
-                    mb-3
-                  ">
-                    Apresentação rápida
-                  </p>
-
-                  <h3 className="
-                    text-xl
-                    sm:text-3xl
-                    font-black
-                    text-white
-                    leading-tight
+                  <div className="
+                    flex
+                    items-center
+                    gap-2
+                    justify-center
+                    md:justify-start
                   ">
 
-                    Veja como o material funciona
-
-                    <span className="block text-red-500 mt-1">
-                      antes de começar
+                    <span className="text-zinc-500 line-through text-sm">
+                      DE R$97,00
                     </span>
 
-                  </h3>
+                    <span className="text-zinc-600 text-[10px] uppercase tracking-[0.2em]">
+                      por apenas
+                    </span>
 
-                  <p className="
-                    text-zinc-400
-                    text-xs
-                    sm:text-sm
-                    mt-4
-                    leading-relaxed
-                    max-w-[320px]
-                    mx-auto
+                  </div>
+
+                  <div className="
+                    text-[2.4rem]
+                    sm:text-6xl
+                    font-black
+                    text-red-500
+                    leading-none
+                    mt-2
                   ">
-                    Um vídeo rápido mostrando a estrutura,
-                    organização e experiência do material.
+                    R$37,90
+                  </div>
+
+                  <p className="text-zinc-500 text-xs mt-2">
+                    Pagamento único • Acesso imediato
                   </p>
 
                 </div>
 
-                <div className="
-                  relative
-                  rounded-[28px]
-                  overflow-hidden
-                  border
-                  border-zinc-800
-                  bg-black
-                  shadow-2xl
-                ">
+                {/* BOTÃO */}
+                <GoldButton
+                  className="
+                    w-full
+                    md:w-auto
+                    md:min-w-[290px]
+                    min-h-[68px]
+                    text-base
+                    sm:text-lg
+                    font-black
+                  "
+                >
+                  QUERO COMEÇAR DIREITO
+                </GoldButton>
 
-                  <video
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="auto"
+              </div>
+
+            </div>
+
+          </div>
+
+          {/* PREVIEW */}
+          <div className="mt-14 overflow-hidden">
+
+            <p className="
+              text-red-500
+              text-[10px]
+              sm:text-xs
+              font-bold
+              uppercase
+              tracking-[0.22em]
+              mb-5
+            ">
+              Veja algumas páginas do material
+            </p>
+
+            <motion.div
+              className="flex gap-4 w-max"
+              animate={{ x: ['0%', '-50%'] }}
+              transition={{
+                duration: isMobile ? 18 : 35,
+                repeat: Infinity,
+                ease: 'linear',
+              }}
+            >
+
+              {[
+                "/associacaocodigo.jpg",
+                "/espacodenotas.jpg",
+                "/planodeestudo.jpg",
+                "/simulado.jpg",
+                "/sumariointerativo.jpg",
+
+                "/associacaocodigo.jpg",
+                "/espacodenotas.jpg",
+                "/planodeestudo.jpg",
+                "/simulado.jpg",
+                "/sumariointerativo.jpg",
+              ].map((img, i) => (
+
+                <div
+                  key={i}
+                  className="
+                    shrink-0
+                    rounded-[20px]
+                    overflow-hidden
+                    border
+                    border-zinc-800
+                    bg-zinc-900
+                  "
+                >
+
+                  <img
+                    src={img}
+                    alt=""
                     className="
-                      w-full
-                      aspect-[9/16]
+                      w-[140px]
+                      h-[200px]
+
+                      sm:w-[210px]
+                      sm:h-[300px]
+
                       object-cover
+                      object-top
                     "
-                  >
-                    <source src="/apresentacao.mp4" type="video/mp4" />
-                  </video>
+                  />
 
                 </div>
 
-              </div>
+              ))}
 
-            </div>
+            </motion.div>
 
-            {/* PREVIEW */}
-            <div className="mt-12 overflow-hidden">
+          </div>
 
-              <p className="
-                text-red-500
-                text-[10px]
-                sm:text-xs
-                font-bold
-                uppercase
-                tracking-[0.22em]
-                mb-4
-                text-center
-                lg:text-left
-              ">
-                Veja algumas páginas do material
-              </p>
-
-              <motion.div
-                className="flex gap-4 w-max"
-                animate={{ x: ["0%", "-50%"] }}
-                transition={{
-                  duration: isMobile ? 18 : 35,
-                  repeat: Infinity,
-                  ease: "linear",
-                }}
-              >
-
-                {[
-                  "/associacaocodigo.jpg",
-                  "/espacodenotas.jpg",
-                  "/planodeestudo.jpg",
-                  "/simulado.jpg",
-                  "/sumariointerativo.jpg",
-
-                  "/associacaocodigo.jpg",
-                  "/espacodenotas.jpg",
-                  "/planodeestudo.jpg",
-                  "/simulado.jpg",
-                  "/sumariointerativo.jpg",
-                ].map((img, i) => (
-
-                  <div
-                    key={i}
-                    className="
-                      shrink-0
-                      rounded-[20px]
-                      overflow-hidden
-                      border
-                      border-zinc-800
-                      bg-zinc-900
-                    "
-                  >
-
-                    <img
-                      src={img}
-                      alt=""
-                      className="
-                        w-[135px]
-                        h-[190px]
-
-                        sm:w-[180px]
-                        sm:h-[250px]
-
-                        object-cover
-                        object-top
-                      "
-                    />
-
-                  </div>
-
-                ))}
-
-              </motion.div>
-
-            </div>
-
-            {/* CTA */}
-            <div className="mt-10">
-
-              <div className="
-                rounded-[28px]
-                border
-                border-zinc-800
-                bg-zinc-900/80
-                backdrop-blur-sm
-                p-4
-                sm:p-6
-              ">
-
-                <div className="
-                  flex
-                  flex-col
-                  md:flex-row
-                  items-center
-                  justify-between
-                  gap-5
-                ">
-
-                  {/* PRICE */}
-                  <div className="text-center md:text-left">
-
-                    <div className="flex items-center gap-2 justify-center md:justify-start">
-
-                      <span className="text-zinc-500 line-through text-sm">
-                        DE R$97,00
-                      </span>
-
-                      <span className="text-zinc-600 text-[10px] uppercase tracking-[0.2em]">
-                        por apenas
-                      </span>
-
-                    </div>
-
-                    <div className="
-                      text-[2.2rem]
-                      sm:text-5xl
-                      font-black
-                      text-red-500
-                      leading-none
-                      mt-2
-                    ">
-                      R$37,90
-                    </div>
-
-                    <p className="text-zinc-500 text-xs mt-2">
-                      Pagamento único • Acesso imediato
-                    </p>
-
-                  </div>
-
-                  {/* BUTTON */}
-                  <GoldButton
-                    className="
-                      w-full
-                      md:w-auto
-                      md:min-w-[280px]
-                      min-h-[64px]
-                      text-base
-                      font-black
-                    "
-                  >
-                    QUERO COMEÇAR DIREITO
-                  </GoldButton>
-
-                </div>
-
-              </div>
-
-            </div>
-
-          </motion.div>
-
-          {/* RIGHT SIDE DESKTOP */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-            className="hidden lg:flex justify-center"
-          >
-
-            <div className="relative w-full max-w-[460px]">
-
-              <div className="
-                absolute
-                inset-0
-                bg-red-500/20
-                blur-[140px]
-                rounded-full
-              " />
-
-              <img
-                src="/mockupebook1.png"
-                alt="Mockup"
-                className="
-                  relative
-                  w-full
-                  object-contain
-                  drop-shadow-[0_30px_70px_rgba(0,0,0,0.8)]
-                "
-              />
-
-            </div>
-
-          </motion.div>
-
-        </div>
+        </motion.div>
 
       </div>
 
