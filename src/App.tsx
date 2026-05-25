@@ -70,6 +70,34 @@ const CarouselInfinite = ({ images, speed = 30 }: { images: string[], speed?: nu
   );
 };
 
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+
+    check();
+
+    window.addEventListener("resize", check);
+
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
+  return isMobile;
+};
+
+const Section = ({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => (
+  <section className={className}>
+    {children}
+  </section>
+);
+
 // --- Sections ---
 
 const Hero = () => {
@@ -341,7 +369,7 @@ const Hero = () => {
                   </div>
 
                   {/* BOTÃO */}
-                  <CTAButton
+                  <GoldButton
                     className="
                       w-full
                       md:w-auto
@@ -352,7 +380,7 @@ const Hero = () => {
                     "
                   >
                     QUERO COMEÇAR DIREITO
-                  </CTAButton>
+                  <GoldButton>
 
                 </div>
 
@@ -385,6 +413,51 @@ const Hero = () => {
                 rounded-full
               " />
 
+              {/* TITULO VIDEO */}
+<div className="text-center mb-6">
+
+  <p className="
+    text-red-500
+    text-xs
+    md:text-sm
+    font-bold
+    uppercase
+    tracking-[0.2em]
+    mb-3
+  ">
+    Apresentação rápida
+  </p>
+
+  <h3 className="
+    text-2xl
+    md:text-4xl
+    font-black
+    text-white
+    leading-tight
+  ">
+
+    Veja como o material funciona
+    <span className="block text-red-500 mt-1">
+      antes de começar
+    </span>
+
+  </h3>
+
+  <p className="
+    text-zinc-400
+    text-sm
+    md:text-base
+    mt-4
+    max-w-[320px]
+    mx-auto
+    leading-relaxed
+  ">
+    Um vídeo rápido mostrando a estrutura,
+    organização e experiência do material.
+  </p>
+
+</div>
+
               {/* VIDEO */}
               <div className="
                 relative
@@ -397,12 +470,13 @@ const Hero = () => {
               ">
 
                 <video
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="w-full object-cover"
-                >
+  autoPlay
+  muted
+  loop
+  playsInline
+  preload="auto"
+  className="w-full object-cover"
+>
                   <source src="/apresentacao.mp4" type="video/mp4" />
                 </video>
 
