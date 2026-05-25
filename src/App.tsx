@@ -383,39 +383,55 @@ const Hero = () => {
 };
 
 const WhatYouWillLearn = () => (
-  <section className="py-16 md:py-24 lg:py-32 px-6 bg-zinc-950/80 overflow-hidden">
+  <section className="py-16 md:py-24 px-4 sm:px-6 bg-black overflow-hidden">
 
-    <div className="max-w-7xl mx-auto">
+    <div className="max-w-6xl mx-auto">
 
       {/* TOPO */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="text-center max-w-4xl mx-auto mb-16 lg:mb-24"
+        className="text-center max-w-3xl mx-auto mb-12 md:mb-16"
       >
 
         <div className="flex justify-center mb-5">
-          <Badge>O que existe dentro do material?</Badge>
+          <div className="
+            inline-flex
+            items-center
+            gap-2
+            px-4
+            py-2
+            rounded-full
+            border
+            border-red-500/20
+            bg-red-500/10
+            text-red-400
+            text-[11px]
+            font-bold
+            uppercase
+            tracking-[0.2em]
+          ">
+            conteúdo do material
+          </div>
         </div>
 
         <h2 className="
           text-3xl
           md:text-5xl
-          lg:text-6xl
           font-black
           text-white
           leading-[0.95]
-          tracking-[-0.04em]
+          tracking-tight
           mb-6
         ">
           Aprenda em{" "}
-          <span className="text-amber-400">
+          <span className="text-red-500">
             7 dias
           </span>{" "}
           o que muitos levam{" "}
-          <span className="text-amber-400">
-            6 meses
+          <span className="text-red-500">
+            meses
           </span>{" "}
           para entender
         </h2>
@@ -423,108 +439,108 @@ const WhatYouWillLearn = () => (
         <p className="
           text-zinc-400
           text-base
-          md:text-xl
+          md:text-lg
           leading-relaxed
-          max-w-3xl
-          mx-auto
         ">
-          Se a ideia de aprender em apenas 7 dias o que a maioria leva
-          meses de faculdade para entender faz sentido pra você…
-          então esse material foi feito sob medida.
+          Um método visual, direto e sem juridiquês
+          para quem quer começar o Direito com clareza,
+          confiança e vantagem.
         </p>
 
       </motion.div>
 
-      {/* VÍDEO PRIMEIRO */}
+      {/* BLOCO VIDEO */}
       <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        whileInView={{ opacity: 1, scale: 1 }}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="max-w-5xl mx-auto mb-20 lg:mb-28"
+        className="mb-14 md:mb-20"
       >
 
         <div className="
-          rounded-[36px]
+          grid
+          lg:grid-cols-2
+          gap-8
+          items-center
+          rounded-[32px]
           border
-          border-white/10
-          bg-white/[0.03]
-          backdrop-blur-md
+          border-zinc-800
+          bg-zinc-900/50
           overflow-hidden
-          shadow-[0_0_80px_rgba(251,191,36,0.08)]
         ">
 
-          <div className="grid lg:grid-cols-2 items-center">
+          {/* TEXTO */}
+          <div className="p-6 md:p-10 text-center lg:text-left">
 
-            {/* TEXTO */}
-            <div className="p-8 md:p-12 text-center lg:text-left">
+            <p className="
+              text-red-500
+              text-xs
+              font-bold
+              uppercase
+              tracking-[0.25em]
+              mb-4
+            ">
+              apresentação rápida
+            </p>
 
-              <p className="
-                text-amber-400
-                text-xs
-                font-bold
-                uppercase
-                tracking-[0.25em]
-                mb-5
-              ">
-                apresentação rápida
-              </p>
+            <h3 className="
+              text-3xl
+              md:text-5xl
+              font-black
+              text-white
+              leading-[0.95]
+              tracking-tight
+              mb-5
+            ">
+              Veja como o{" "}
+              <span className="text-red-500">
+                material funciona
+              </span>
+            </h3>
 
-              <h3 className="
-                text-3xl
-                md:text-5xl
-                font-black
-                text-white
-                leading-[0.95]
-                tracking-[-0.04em]
-                mb-6
-              ">
-                Veja como o{" "}
-                <span className="text-amber-400">
-                  material funciona
-                </span>
-              </h3>
+            <p className="
+              text-zinc-400
+              leading-relaxed
+              text-base
+              md:text-lg
+              mb-5
+            ">
+              A proposta é simples: aprender os
+              fundamentos dos primeiros meses
+              da faculdade de Direito de forma
+              organizada, visual e fácil de entender.
+            </p>
 
-              <p className="
-                text-zinc-400
-                text-base
-                md:text-lg
-                leading-relaxed
-                mb-6
-              ">
-                Não posso prometer que você vai se tornar especialista
-                da noite para o dia.
-              </p>
+            <p className="
+              text-zinc-500
+              text-sm
+              md:text-base
+              leading-relaxed
+            ">
+              Sem linguagem complicada.
+              Sem perder meses tentando entender sozinho.
+            </p>
 
-              <p className="
-                text-zinc-300
-                leading-relaxed
-              ">
-                Mas posso garantir acesso a um método direto,
-                visual e simplificado que encurta o caminho
-                e ajuda você a entender os fundamentos
-                essenciais do Direito com muito mais clareza.
-              </p>
+          </div>
 
-            </div>
+          {/* VIDEO */}
+          <div className="relative w-full h-full">
 
-            {/* VIDEO */}
-            <div className="relative h-full">
+            <div className="
+              relative
+              aspect-video
+              lg:aspect-auto
+              lg:h-full
+              min-h-[260px]
+            ">
 
-              <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="auto"
-                className="
-                  w-full
-                  h-full
-                  object-cover
-                  min-h-[400px]
-                "
-              >
-                <source src="/apresentacao.mp4" type="video/mp4" />
-              </video>
+              <iframe
+                className="absolute inset-0 w-full h-full"
+                src="https://www.youtube.com/embed/SEU_VIDEO"
+                title="Apresentação do material"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
 
             </div>
 
@@ -535,206 +551,103 @@ const WhatYouWillLearn = () => (
       </motion.div>
 
       {/* MATÉRIAS */}
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-16 lg:mb-24">
-
-        {[
-          {
-            title: "CIÊNCIAS POLÍTICAS",
-            icon: <Users className="text-amber-400" />,
-            desc: "Entenda como o poder funciona dentro da sociedade e como os sistemas políticos se organizam.",
-            topics: [
-              "Conceito de Estado",
-              "Formas de Governo",
-              "Tripartição dos Poderes",
-              "Sistemas Eleitorais",
-              "Organização Política"
-            ]
-          },
-
-          {
-            title: "TEORIA GERAL DO ESTADO",
-            icon: <Scale className="text-amber-400" />,
-            desc: "Aprenda os fundamentos que explicam a estrutura política e jurídica do Estado moderno.",
-            topics: [
-              "Soberania",
-              "Elementos do Estado",
-              "Povo, território e governo",
-              "Estrutura do poder",
-              "Estado e sociedade"
-            ]
-          },
-
-          {
-            title: "DIREITO CONSTITUCIONAL I",
-            icon: <ShieldCheck className="text-amber-400" />,
-            desc: "Os conceitos constitucionais explicados de forma simples e sem juridiquês.",
-            topics: [
-              "Poder Constituinte",
-              "Direitos Fundamentais",
-              "Controle de Constitucionalidade",
-              "Supremacia da Constituição",
-              "Constitucionalismo"
-            ]
-          },
-
-          {
-            title: "INTRODUÇÃO AO DIREITO",
-            icon: <BookOpen className="text-amber-400" />,
-            desc: "A base que todo estudante precisa dominar antes das matérias mais complexas.",
-            topics: [
-              "Normas Jurídicas",
-              "Fontes do Direito",
-              "Ramos do Direito",
-              "Interpretação Jurídica",
-              "Princípios fundamentais"
-            ]
-          },
-
-          {
-            title: "TEORIA GERAL DO PROCESSO",
-            icon: <Award className="text-amber-400" />,
-            desc: "Aprenda como funciona a estrutura do processo judicial e seus princípios.",
-            topics: [
-              "Conceito de ação",
-              "Partes do processo",
-              "Jurdição",
-              "Processo e procedimento",
-              "Princípios processuais"
-            ]
-          },
-
-          {
-            title: "FILOSOFIA E SOCIOLOGIA",
-            icon: <Star className="text-amber-400" />,
-            desc: "Compreenda os principais pensadores e teorias cobrados nos primeiros períodos.",
-            topics: [
-              "Hans Kelsen",
-              "Max Weber",
-              "Contrato Social",
-              "Positivismo",
-              "Direito e sociedade"
-            ]
-          }
-        ].map((item, i) => (
-
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 35 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.08 }}
-          >
-
-            <GlassCard className="h-full text-left relative overflow-hidden group">
-
-              <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                {React.cloneElement(item.icon as React.ReactElement, { size: 70 })}
-              </div>
-
-              <div className="flex items-center gap-4 mb-6">
-
-                <div className="p-3 bg-amber-400/10 rounded-2xl">
-                  {item.icon}
-                </div>
-
-                <h3 className="
-                  text-lg
-                  font-black
-                  text-white
-                  leading-tight
-                ">
-                  {item.title}
-                </h3>
-
-              </div>
-
-              <p className="
-                text-zinc-400
-                mb-8
-                leading-relaxed
-              ">
-                {item.desc}
-              </p>
-
-              <ul className="space-y-3">
-
-                {item.topics.map((topic, j) => (
-
-                  <li
-                    key={j}
-                    className="
-                      flex
-                      items-center
-                      gap-2
-                      text-sm
-                      text-zinc-300
-                    "
-                  >
-
-                    <CheckCircle2
-                      size={14}
-                      className="text-amber-400/60 shrink-0"
-                    />
-
-                    {topic}
-
-                  </li>
-
-                ))}
-
-              </ul>
-
-            </GlassCard>
-
-          </motion.div>
-
-        ))}
-
-      </div>
-
-      {/* FECHAMENTO */}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        className="text-center max-w-4xl mx-auto"
       >
 
-        <p className="
-          text-2xl
-          md:text-4xl
-          font-black
-          text-white
-          leading-tight
-          tracking-[-0.03em]
-          mb-8
+        <div className="
+          rounded-[32px]
+          border
+          border-zinc-800
+          bg-zinc-900/40
+          p-6
+          md:p-10
         ">
-          Enquanto muitos alunos passam{" "}
-          <span className="text-amber-400">
-            meses perdidos
-          </span>{" "}
-          tentando entender esses assuntos…
-        </p>
 
-        <p className="
-          text-lg
-          md:text-2xl
-          text-zinc-400
-          leading-relaxed
-          max-w-3xl
-          mx-auto
-        ">
-          você aprende tudo de forma organizada,
-          visual e simplificada em poucos dias.
-        </p>
+          <div className="text-center mb-10">
 
-        <div className="flex flex-wrap justify-center gap-4 mt-10">
+            <p className="
+              text-red-500
+              text-xs
+              font-bold
+              uppercase
+              tracking-[0.2em]
+              mb-3
+            ">
+              disciplinas incluídas
+            </p>
 
-          <Badge>Explicação Simplificada</Badge>
-          <Badge>Ideal para Calouros</Badge>
-          <Badge>Linguagem Acessível</Badge>
-          <Badge>Aprendizado Rápido</Badge>
-          <Badge>Método Validado</Badge>
+            <h3 className="
+              text-2xl
+              md:text-4xl
+              font-black
+              text-white
+              leading-tight
+            ">
+              Os principais conteúdos
+              do início da faculdade
+            </h3>
+
+          </div>
+
+          <div className="
+            grid
+            sm:grid-cols-2
+            lg:grid-cols-3
+            gap-4
+          ">
+
+            {[
+              "Introdução ao Estudo do Direito",
+              "Antropologia, Sociologia e Direito",
+              "Filosofia e História do Direito",
+              "Ciência Política, Estado e Constituição",
+              "Criminologia",
+              "Noções de Direito Civil",
+              "Noções de Direito Penal",
+              "Carreiras Jurídicas",
+            ].map((item, i) => (
+
+              <div
+                key={i}
+                className="
+                  flex
+                  items-center
+                  gap-3
+                  rounded-2xl
+                  border
+                  border-zinc-800
+                  bg-black/40
+                  px-4
+                  py-4
+                "
+              >
+
+                <div className="
+                  w-2.5
+                  h-2.5
+                  rounded-full
+                  bg-red-500
+                  shrink-0
+                " />
+
+                <p className="
+                  text-sm
+                  md:text-base
+                  text-zinc-200
+                  leading-snug
+                  font-medium
+                ">
+                  {item}
+                </p>
+
+              </div>
+
+            ))}
+
+          </div>
 
         </div>
 
