@@ -370,18 +370,17 @@ const Hero = () => {
 
                   {/* BOTÃO */}
                   <GoldButton
-                    className="
-                      w-full
-                      md:w-auto
-                      min-w-[260px]
-                      min-h-[72px]
-                      text-lg
-                      font-black
-                    "
-                  >
-                    QUERO COMEÇAR DIREITO
-                  <GoldButton>
-
+  className="
+    w-full
+    md:w-auto
+    min-w-[260px]
+    min-h-[72px]
+    text-lg
+    font-black
+  "
+>
+  QUERO COMEÇAR DIREITO
+</GoldButton>
                 </div>
 
               </div>
