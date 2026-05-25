@@ -73,333 +73,350 @@ const CarouselInfinite = ({ images, speed = 30 }: { images: string[], speed?: nu
 // --- Sections ---
 
 const Hero = () => {
-  const feedbackImages = [
-    "/feedback1.png",
-    "/feedback2.png",
-    "/feedback3.png",
-    "/feedback4.png",
-    "/feedback5.png",
-    "/feedback6.png",
-    "/feedback7.png",
-  ];
-
-  const ebookImages = [
-    "/material1.jpg",
-    "/material2.jpg",
-    "/material3.jpg",
-  ];
-
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [currentPreview, setCurrentPreview] = useState(0);
-
-  // AUTOPLAY FEEDBACKS
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % feedbackImages.length);
-    }, 3500);
-
-    return () => clearInterval(timer);
-  }, []);
+  const isMobile = useIsMobile();
 
   return (
-    <section className="relative overflow-hidden pt-14 md:pt-24 pb-20 px-6 max-w-[1400px] mx-auto grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+    <Section className="relative overflow-hidden pt-14 md:pt-24">
 
-      {/* GLOW */}
-      <div className="absolute top-0 left-1/4 -translate-x-1/2 w-[500px] h-[500px] bg-amber-600/10 blur-[120px] -z-10 rounded-full" />
+      {/* BG GLOW */}
+      <div className="absolute top-0 left-1/3 -translate-x-1/2 w-[500px] h-[500px] bg-red-600/10 blur-[120px] rounded-full -z-10" />
 
-      {/* ESQUERDA */}
-      <motion.div
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8 }}
-        className="relative z-10"
-      >
+      <div className="max-w-[1180px] mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* BADGE */}
-        <div className="flex justify-center lg:justify-start mb-5">
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 text-amber-400 text-[11px] md:text-xs font-bold uppercase tracking-wider border border-amber-500/20">
-            <Users size={13} />
-            +400 calouros já começaram
-          </span>
-        </div>
+        <div className="flex justify-center mb-6">
 
-        {/* HEADLINE */}
-        <h1 className="text-[2.4rem] sm:text-5xl lg:text-7xl font-black leading-[1.02] tracking-tight text-center lg:text-left text-white">
-          Entenda{" "}
-          <span className="text-amber-400">
-            Ciências Políticas,
-            <br />
-            Teoria do Estado
-          </span>{" "}
-          e Constitucional I
-          <br />
-          sem linguagem complicada.
-        </h1>
-
-        {/* SUB */}
-        <p className="text-base md:text-xl text-zinc-400 mt-6 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed text-center lg:text-left">
-          Um material visual e simplificado criado para calouros de Direito
-          que querem finalmente entender a base das disciplinas iniciais
-          sem depender de explicações confusas.
-        </p>
-
-        {/* MOCKUP */}
-        <div className="mb-8">
-
-          <p className="text-amber-500 text-xs md:text-sm font-bold uppercase tracking-widest mb-4 text-center lg:text-left">
-            O material que vai te ajudar a dominar o início do Direito
-          </p>
-
-          <div className="relative rounded-3xl border border-zinc-800 bg-zinc-900/60 backdrop-blur-sm overflow-hidden p-4 md:p-6">
-
-            <div className="absolute inset-0 bg-gradient-to-b from-amber-500/5 to-transparent pointer-events-none" />
-
-            <div className="relative flex items-center justify-center">
-
-              <img
-                src="/constitucional1.png"
-                alt="Mockup dos materiais de Direito"
-                className="w-full max-w-[580px] object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.65)]"
-              />
-
-            </div>
-
-            {/* INFO */}
-            <div className="mt-5 text-center lg:text-left">
-
-              <p className="text-zinc-200 font-semibold text-sm md:text-base leading-relaxed">
-                Acesso imediato ao material completo de{" "}
-                <span className="text-amber-400 font-extrabold">
-                  Ciências Políticas, Teoria do Estado e Constitucional I
-                </span>
-              </p>
-
-              <p className="text-zinc-500 text-xs md:text-sm mt-2 leading-relaxed">
-                Resumos visuais, esquemas simplificados e linguagem clara
-                para você aprender mais rápido.
-              </p>
-
-            </div>
-
+          <div className="
+            inline-flex
+            items-center
+            gap-2
+            px-4
+            py-2
+            rounded-full
+            border
+            border-red-500/20
+            bg-red-500/10
+            text-red-400
+            text-[11px]
+            font-bold
+            uppercase
+            tracking-[0.2em]
+          ">
+            +400 calouros começaram Direito com mais clareza
           </div>
 
         </div>
 
-        {/* CARD INFO */}
-        <div className="p-4 md:p-5 rounded-3xl bg-zinc-900/60 border border-zinc-800 backdrop-blur-sm">
+        {/* HERO */}
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
 
-          {/* TÍTULO */}
-          <div className="text-center lg:text-left">
+          {/* ESQUERDA */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center lg:text-left"
+          >
 
-            <p className="text-zinc-100 font-bold text-base md:text-lg leading-snug">
-              Pare de ficar perdido nas primeiras disciplinas de Direito.
+            {/* HEADLINE */}
+            <h1 className="
+              text-[2.5rem]
+              sm:text-6xl
+              xl:text-7xl
+              font-black
+              leading-[0.98]
+              tracking-tight
+            ">
+
+              Aprenda os{" "}
+
+              <span className="text-red-500">
+                Primeiros 6
+                <br />
+                Meses
+              </span>{" "}
+
+              da Faculdade de Direito
+              <br />
+
+              em apenas{" "}
+
+              <span className="text-red-500">
+                7 Dias
+              </span>
+
+            </h1>
+
+            {/* SUB */}
+            <p className="
+              text-zinc-400
+              text-base
+              md:text-xl
+              leading-relaxed
+              mt-7
+              max-w-[700px]
+              mx-auto
+              lg:mx-0
+            ">
+              Um método direto e sem juridiquês para quem quer começar
+              o Direito com clareza, segurança e vantagem.
             </p>
 
-            <p className="text-zinc-500 text-xs md:text-sm mt-2">
-              Um atalho visual e simplificado para aprender mais rápido.
-            </p>
+            {/* MOCKUP */}
+            <div className="mt-10">
 
-          </div>
+              <div className="
+                relative
+                rounded-[32px]
+                border
+                border-zinc-800
+                bg-zinc-900/60
+                backdrop-blur-sm
+                overflow-hidden
+                p-4
+                md:p-6
+              ">
 
-          {/* BENEFÍCIOS */}
-          <div className="mt-5 space-y-3">
+                <div className="absolute inset-0 bg-gradient-to-b from-red-500/5 to-transparent pointer-events-none" />
 
-            {[
-              "Explicações simples para finalmente entender o juridiquês",
-              "Esquemas visuais para memorizar mais rápido",
-              "Conteúdo direto ao ponto",
-              "Material pensado para iniciantes",
-              "Acesso imediato logo após a compra"
-            ].map((item, index) => (
-              <div
-                key={index}
-                className="flex items-start gap-3 bg-zinc-950/40 border border-zinc-800 rounded-2xl p-3"
-              >
-                <div className="w-5 h-5 rounded-full bg-amber-500/15 flex items-center justify-center shrink-0 mt-[2px]">
-                  <span className="text-amber-400 text-[11px]">✔</span>
+                <img
+                  src="/mockupebook1.png"
+                  alt="Mockup Ebook Direito"
+                  className="
+                    relative
+                    w-full
+                    max-w-[720px]
+                    mx-auto
+                    object-contain
+                    drop-shadow-[0_30px_60px_rgba(0,0,0,0.6)]
+                  "
+                />
+
+                {/* INFO */}
+                <div className="mt-5 text-center lg:text-left">
+
+                  <p className="text-zinc-100 font-semibold text-sm md:text-base">
+                    Acesso imediato ao guia completo do 1º semestre
+                  </p>
+
+                  <p className="text-zinc-500 text-xs md:text-sm mt-2 leading-relaxed">
+                    Disciplinas organizadas de forma visual e simplificada
+                    para você finalmente entender o início do Direito.
+                  </p>
+
                 </div>
 
-                <p className="text-sm text-zinc-300 leading-relaxed">
-                  {item}
-                </p>
               </div>
-            ))}
 
-          </div>
+            </div>
 
-          {/* SOCIAL PROOF */}
-          <div className="mt-6 flex justify-center lg:justify-start">
+            {/* PREVIEW */}
+            <div className="mt-10 overflow-hidden">
 
-            <div className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 px-4 py-3 rounded-2xl">
-
-              <span className="text-base">🔥</span>
-
-              <p className="text-amber-300 text-xs sm:text-sm font-medium leading-relaxed">
-                Mais de 400 calouros já começaram Direito com mais clareza usando esse material.
+              <p className="
+                text-red-500
+                text-xs
+                md:text-sm
+                font-bold
+                uppercase
+                tracking-[0.2em]
+                mb-4
+                text-center
+                lg:text-left
+              ">
+                Veja algumas páginas do material
               </p>
 
-            </div>
-
-          </div>
-
-          {/* GARANTIAS */}
-          <div className="mt-5 flex flex-wrap items-center justify-center lg:justify-start gap-2">
-
-            <div className="flex items-center justify-center bg-zinc-900 border border-zinc-800 rounded-full px-3 py-2 text-zinc-400 text-xs">
-              ✔ Pagamento único
-            </div>
-
-            <div className="flex items-center justify-center bg-zinc-900 border border-zinc-800 rounded-full px-3 py-2 text-zinc-400 text-xs">
-              ✔ Acesso imediato
-            </div>
-
-            <div className="flex items-center justify-center bg-zinc-900 border border-zinc-800 rounded-full px-3 py-2 text-zinc-400 text-xs">
-              ✔ Garantia de 7 dias
-            </div>
-
-          </div>
-
-        </div>
-
-        {/* BOTÕES */}
-        <div className="flex flex-col sm:flex-row gap-4 mt-6">
-
-          {/* MATERIAL */}
-          <GoldButton
-            className="flex-1 min-h-[110px] flex flex-col items-center justify-center text-center"
-            onClick={() =>
-              document.getElementById("pricing")?.scrollIntoView({
-                behavior: "smooth",
-              })
-            }
-          >
-
-            <span className="text-lg font-black leading-tight">
-              Quero acessar
-              <br />
-              o material
-            </span>
-
-            <span className="text-sm text-white/70 mt-2">
-              Ciências Políticas + TGE + Constitucional I
-            </span>
-
-            <span className="text-3xl font-black mt-3">
-              R$ 12,90
-            </span>
-
-          </GoldButton>
-
-          {/* COMBO */}
-          <GoldButton
-            secondary
-            className="flex-1 min-h-[110px] flex flex-col items-center justify-center text-center"
-            onClick={() =>
-              document.getElementById("combo-offer")?.scrollIntoView({
-                behavior: "smooth",
-              })
-            }
-          >
-
-            <span className="text-lg font-black leading-tight">
-              Liberar todas
-              <br />
-              as disciplinas
-            </span>
-
-            <span className="text-sm text-zinc-400 mt-2">
-              Combo completo de Direito
-            </span>
-
-            <span className="text-3xl font-black text-white mt-3">
-              R$ 57,90
-            </span>
-
-          </GoldButton>
-
-        </div>
-
-      </motion.div>
-
-      {/* DIREITA */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        className="relative space-y-8"
-      >
-
-        {/* FEEDBACKS */}
-        <div className="relative bg-zinc-900 border border-zinc-800 rounded-3xl p-6 md:p-8 min-h-[400px] overflow-hidden">
-
-          <h3 className="text-amber-500 font-bold text-sm md:text-base mb-4">
-            Veja os feedbacks reais dos alunos:
-          </h3>
-
-          <div
-            id="feedback-scroll"
-            onScroll={(e) => {
-              const scrollLeft = e.currentTarget.scrollLeft;
-              const width = e.currentTarget.offsetWidth;
-              setCurrentSlide(Math.round(scrollLeft / width));
-            }}
-            className="flex overflow-x-auto snap-x snap-mandatory scroll-smooth scrollbar-hide"
-          >
-
-            {feedbackImages.map((img, i) => (
-              <div
-                key={i}
-                className="min-w-full snap-center flex justify-center px-2"
+              <motion.div
+                className="flex gap-4 w-max"
+                animate={{ x: ["0%", "-50%"] }}
+                transition={{
+                  duration: isMobile ? 18 : 35,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
               >
-                <img
-                  src={img}
-                  alt=""
-                  className="rounded-2xl border border-zinc-800 max-h-[320px] object-cover"
-                />
+
+                {[
+                  "/associacaocodigo.jpg",
+                  "/espacodenotas.jpg",
+                  "/planodeestudo.jpg",
+                  "/simulado.jpg",
+                  "/sumariointerativo.jpg",
+
+                  "/associacaocodigo.jpg",
+                  "/espacodenotas.jpg",
+                  "/planodeestudo.jpg",
+                  "/simulado.jpg",
+                  "/sumariointerativo.jpg",
+                ].map((img, i) => (
+
+                  <div
+                    key={i}
+                    className="
+                      shrink-0
+                      rounded-[22px]
+                      overflow-hidden
+                      border
+                      border-zinc-800
+                      bg-zinc-900
+                    "
+                  >
+
+                    <img
+                      src={img}
+                      alt=""
+                      className="
+                        w-[170px]
+                        h-[240px]
+
+                        sm:w-[210px]
+                        sm:h-[290px]
+
+                        object-cover
+                        object-top
+                      "
+                    />
+
+                  </div>
+
+                ))}
+
+              </motion.div>
+
+            </div>
+
+            {/* CTA */}
+            <div className="mt-10">
+
+              <div className="
+                rounded-[28px]
+                border
+                border-zinc-800
+                bg-zinc-900/70
+                backdrop-blur-sm
+                p-5
+                md:p-6
+              ">
+
+                <div className="
+                  flex
+                  flex-col
+                  md:flex-row
+                  items-center
+                  justify-between
+                  gap-5
+                ">
+
+                  {/* PREÇO */}
+                  <div className="text-center md:text-left">
+
+                    <div className="flex items-center gap-3 justify-center md:justify-start">
+
+                      <span className="text-zinc-500 line-through text-sm">
+                        DE R$97,00
+                      </span>
+
+                      <span className="text-zinc-600 text-xs uppercase tracking-widest">
+                        por apenas
+                      </span>
+
+                    </div>
+
+                    <div className="
+                      text-[2.5rem]
+                      md:text-6xl
+                      font-black
+                      text-red-500
+                      leading-none
+                      mt-2
+                    ">
+                      R$37,90
+                    </div>
+
+                    <p className="text-zinc-500 text-xs mt-3">
+                      Pagamento único • Acesso imediato
+                    </p>
+
+                  </div>
+
+                  {/* BOTÃO */}
+                  <CTAButton
+                    className="
+                      w-full
+                      md:w-auto
+                      min-w-[260px]
+                      min-h-[72px]
+                      text-lg
+                      font-black
+                    "
+                  >
+                    QUERO COMEÇAR DIREITO
+                  </CTAButton>
+
+                </div>
+
               </div>
-            ))}
 
-          </div>
+            </div>
 
-        </div>
+          </motion.div>
 
-        {/* PREVIEW */}
-        <div className="relative bg-zinc-900 border border-zinc-800 rounded-3xl p-6 md:p-8 min-h-[400px] overflow-hidden">
-
-          <h3 className="text-amber-500 font-bold text-sm md:text-base mb-4">
-            Prévia do material:
-          </h3>
-
-          <div
-            id="ebook-scroll"
-            onScroll={(e) => {
-              const scrollLeft = e.currentTarget.scrollLeft;
-              const width = e.currentTarget.offsetWidth;
-              setCurrentPreview(Math.round(scrollLeft / width));
-            }}
-            className="flex overflow-x-auto snap-x snap-mandatory scroll-smooth scrollbar-hide"
+          {/* DIREITA */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative flex justify-center"
           >
 
-            {ebookImages.map((img, i) => (
-              <div
-                key={i}
-                className="min-w-full snap-center flex justify-center px-2"
-              >
-                <img
-                  src={img}
-                  alt=""
-                  className="rounded-2xl border border-zinc-800 max-h-[320px] object-cover"
-                />
-              </div>
-            ))}
+            <div className="
+              relative
+              w-full
+              max-w-[390px]
+            ">
 
-          </div>
+              {/* GLOW */}
+              <div className="
+                absolute
+                inset-0
+                bg-red-500/20
+                blur-[120px]
+                rounded-full
+              " />
+
+              {/* VIDEO */}
+              <div className="
+                relative
+                rounded-[36px]
+                overflow-hidden
+                border
+                border-zinc-800
+                bg-black
+                shadow-2xl
+              ">
+
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="w-full object-cover"
+                >
+                  <source src="/apresentacao.mp4" type="video/mp4" />
+                </video>
+
+              </div>
+
+            </div>
+
+          </motion.div>
 
         </div>
 
-      </motion.div>
+      </div>
 
-    </section>
+    </Section>
   );
 };
 
