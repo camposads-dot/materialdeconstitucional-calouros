@@ -326,17 +326,17 @@ const Hero = () => {
             >
 
               {[
-                "/associacaocodigo.jpg",
-                "/espacodenotas.jpg",
-                "/planodeestudo.jpg",
-                "/simulado.jpg",
-                "/sumariointerativo.jpg",
+                "/ebook1.jpg",
+                "/ebook2.jpg",
+                "/ebook3.jpg",
+                "/ebook4.jpg",
+                "/ebook5.jpg",
 
-                "/associacaocodigo.jpg",
-                "/espacodenotas.jpg",
-                "/planodeestudo.jpg",
-                "/simulado.jpg",
-                "/sumariointerativo.jpg",
+                "/ebook1.jpg",
+                "/ebook2.jpg",
+                "/ebook3.jpg",
+                "/ebook4.jpg",
+                "/ebook5.jpg",
               ].map((img, i) => (
 
                 <div
