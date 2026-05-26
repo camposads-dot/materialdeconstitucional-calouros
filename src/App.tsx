@@ -382,7 +382,7 @@ const Hero = () => {
   );
 };
 
-const WhatYouWillLearn = () => (
+const WhatYouWillLearn = () => {
   <section className="py-16 md:py-24 px-4 sm:px-6 bg-black overflow-hidden">
 
     <div className="max-w-6xl mx-auto">
@@ -687,7 +687,7 @@ const WhatYouWillLearn = () => (
     </div>
 
   </section>
-);
+};
 
 const Bonuses = () => {
   const bonuses = [
