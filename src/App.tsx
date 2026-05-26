@@ -382,7 +382,7 @@ const Hero = () => {
   );
 };
 
-const WhatYouWillLearn = () => {
+const WhatYouWillLearn = () => (
   <section className="py-16 md:py-24 px-4 sm:px-6 bg-black overflow-hidden">
 
     <div className="max-w-6xl mx-auto">
@@ -687,7 +687,7 @@ const WhatYouWillLearn = () => {
     </div>
 
   </section>
-};
+);
 
 const Bonuses = () => {
   const bonuses = [
@@ -1443,22 +1443,6 @@ export default function App() {
         <SocialProof />
         <VideoFeedbacks />
         <TargetAudience />
-        
-        {/* Horizontal Scroll Material Preview */}
-        <section className="py-16 md:py-24 lg:py-32 px-6 overflow-hidden">
-          <div className="text-center max-w-7xl mx-auto mb-12 lg:mb-16">
-            <h2 className="text-2xl lg:text-3xl font-bold text-white mb-4">Veja por dentro</h2>
-          </div>
-          <CarouselInfinite images={[
-  "/material1.jpg",
-  "/material2.jpg",
-  "/material3.jpg",
-  "/material4.jpg",
-  "/material5.jpg",
-  "/material6.jpg"
-]} />
-        </section>
-        <VideoFeedbacks />
         <Pricing />
         <Objection />
         <DeliveryAndGuarantee />
