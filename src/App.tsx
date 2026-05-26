@@ -689,63 +689,257 @@ const WhatYouWillLearn = () => (
   </section>
 );
 
-const Bonus = () => (
-  <section className="py-16 md:py-24 lg:py-32 px-6">
-    <div className="max-w-7xl mx-auto text-center">
-      <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
-        <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">BÔNUS EXCLUSIVOS</h2>
-        <p className="text-lg text-zinc-400 mb-12 lg:mb-20 max-w-2xl mx-auto">Materiais estratégicos para acelerar sua jornada acadêmica e facilitar seus estudos no Direito.</p>
-      </motion.div>
+const Bonuses = () => {
+  const bonuses = [
+    {
+      title: "Teoria Pura do Direito",
+      desc: "Aprenda os fundamentos do pensamento jurídico moderno de forma simplificada.",
+      tag: "Bônus Exclusivo",
+      images: [
+        "/bonuskelsen1.jpg",
+        "/bonuskelsen2.jpg",
+        "/bonuskelsen3.jpg",
+        "/bonuskelsen4.jpg",
+      ]
+    },
 
-      <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 mb-12 lg:mb-16">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-          <GlassCard className="text-left flex flex-col sm:flex-row gap-6 h-full items-center p-6 lg:p-8">
-            <div className="w-24 h-24 lg:w-32 lg:h-32 bg-amber-400/10 rounded-2xl flex items-center justify-center shrink-0">
-              <Download size={40} className="text-amber-400" />
-            </div>
-            <div>
-              <h3 className="text-xl lg:text-2xl font-bold text-white mb-2">MAPAS MENTAIS PARA REVISÃO</h3>
-              <p className="text-zinc-400 mb-4 text-sm lg:text-base">Mapas mentais prontos para revisar conteúdos rapidamente antes das provas e memorizar os principais conceitos.</p>
-              <div className="flex flex-wrap gap-2">
-                <Badge>Revisão rápida</Badge>
-                <Badge>Visual simplificado</Badge>
-              </div>
-            </div>
-          </GlassCard>
-        </motion.div>
+    {
+      title: "Fatores de Mudança no Direito",
+      desc: "Entenda como a sociedade influencia as transformações das leis e do sistema jurídico.",
+      tag: "Bônus Exclusivo",
+      images: [
+        "/bonusmudancas1.jpg",
+        "/bonusmudancas2.jpg",
+        "/bonusmudancas3.jpg",
+        "/bonusmudancas4.jpg",
+      ]
+    }
+  ];
 
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-          <GlassCard className="text-left flex flex-col sm:flex-row gap-6 h-full items-center p-6 lg:p-8">
-            <div className="w-24 h-24 lg:w-32 lg:h-32 bg-amber-400/10 rounded-2xl flex items-center justify-center shrink-0">
-              <BookOpen size={40} className="text-amber-400" />
+  return (
+    <Section className="py-16 md:py-24 px-4 sm:px-6 bg-black overflow-hidden">
+
+      <div className="max-w-6xl mx-auto">
+
+        {/* TOPO */}
+        <div className="text-center mb-12 md:mb-16">
+
+          <div className="flex justify-center mb-5">
+            <div className="
+              inline-flex
+              items-center
+              gap-2
+              px-4
+              py-2
+              rounded-full
+              border
+              border-red-500/20
+              bg-red-500/10
+              text-red-400
+              text-[11px]
+              font-bold
+              uppercase
+              tracking-[0.2em]
+            ">
+              bônus exclusivos
             </div>
-            <div>
-              <h3 className="text-xl lg:text-2xl font-bold text-white mb-2">HANS KELSEN SIMPLIFICADO</h3>
-              <p className="text-zinc-400 mb-4 text-sm lg:text-base">A Teoria Pura do Direito explicada de forma acessível para compreender os fundamentos do Direito moderno.</p>
-              <div className="flex flex-wrap gap-2">
-                <Badge>Base filosófica</Badge>
-                <Badge>Conceitos chave</Badge>
+          </div>
+
+          <h2 className="
+            text-3xl
+            md:text-5xl
+            font-black
+            text-white
+            leading-[0.95]
+            tracking-tight
+            mb-5
+          ">
+            Receba materiais extras
+            para acelerar sua{" "}
+            <span className="text-red-500">
+              evolução no Direito
+            </span>
+          </h2>
+
+          <p className="
+            text-zinc-400
+            text-base
+            md:text-lg
+            leading-relaxed
+            max-w-2xl
+            mx-auto
+          ">
+            Conteúdos complementares para aprofundar
+            sua visão jurídica desde os primeiros períodos.
+          </p>
+
+        </div>
+
+        {/* GRID */}
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-12">
+
+          {bonuses.map((b, i) => (
+
+            <div
+              key={i}
+              className="
+                relative
+                overflow-hidden
+                rounded-[32px]
+                border
+                border-zinc-800
+                bg-zinc-900/50
+                backdrop-blur-sm
+                p-5
+                md:p-6
+                group
+                transition-all
+                duration-300
+                hover:border-red-500/30
+              "
+            >
+
+              {/* GLOW */}
+              <div className="
+                absolute
+                inset-0
+                bg-gradient-to-b
+                from-red-500/5
+                to-transparent
+                opacity-0
+                group-hover:opacity-100
+                transition-opacity
+              " />
+
+              {/* TAG */}
+              <div className="
+                inline-flex
+                items-center
+                px-3
+                py-1.5
+                rounded-full
+                border
+                border-red-500/20
+                bg-red-500/10
+                text-red-400
+                text-[10px]
+                font-bold
+                uppercase
+                tracking-[0.18em]
+                mb-5
+              ">
+                {b.tag}
               </div>
+
+              {/* TITULO */}
+              <h3 className="
+                text-2xl
+                md:text-3xl
+                font-black
+                text-white
+                leading-tight
+                mb-4
+                group-hover:text-red-500
+                transition-colors
+              ">
+                {b.title}
+              </h3>
+
+              {/* DESC */}
+              <p className="
+                text-zinc-400
+                leading-relaxed
+                text-sm
+                md:text-base
+                mb-6
+              ">
+                {b.desc}
+              </p>
+
+              {/* CARROSSEL */}
+              <div className="overflow-hidden rounded-3xl">
+
+                <motion.div
+                  className="flex gap-3 w-max"
+                  animate={{ x: ["0%", "-50%"] }}
+                  transition={{
+                    duration: 24,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
+                >
+
+                  {[...b.images, ...b.images].map((img, index) => (
+
+                    <div
+                      key={index}
+                      className="
+                        shrink-0
+                        w-[110px]
+                        sm:w-[130px]
+                        md:w-[150px]
+                      "
+                    >
+
+                      <div className="
+                        rounded-[22px]
+                        overflow-hidden
+                        border
+                        border-zinc-800
+                        bg-black
+                        aspect-[3/4]
+                      ">
+
+                        <img
+                          src={img}
+                          alt=""
+                          className="
+                            w-full
+                            h-full
+                            object-cover
+                            object-top
+                          "
+                        />
+
+                      </div>
+
+                    </div>
+
+                  ))}
+
+                </motion.div>
+
+              </div>
+
             </div>
-          </GlassCard>
-        </motion.div>
+
+          ))}
+
+        </div>
+
+        {/* CTA */}
+        <div className="text-center">
+
+          <GoldButton
+            className="
+              w-full
+              sm:w-auto
+              min-h-[68px]
+              text-base
+              md:text-lg
+              font-black
+            "
+          >
+            QUERO O MATERIAL COM TODOS OS BÔNUS
+          </GoldButton>
+
+        </div>
+
       </div>
 
-      <p className="text-lg lg:text-xl text-zinc-400 italic mb-10">“Esses materiais foram adicionados para encurtar seu aprendizado e acelerar sua compreensão do Direito desde os primeiros períodos.”</p>
-      
-      <div className="flex justify-center flex-wrap gap-4 mb-16 lg:mb-20">
-        <Badge>Incluso Hoje</Badge>
-        <Badge>Acesso Imediato</Badge>
-        <Badge>Material Complementar</Badge>
-        <Badge>Revisão Inteligente</Badge>
-      </div>
-
-      <GoldButton onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })} className="mx-auto w-full sm:w-auto">
-        QUERO O MATERIAL COM TODOS OS BÔNUS
-      </GoldButton>
-    </div>
-  </section>
-);
+    </Section>
+  );
+};
 
 const SocialProof = () => {
   const feedbacks = [
