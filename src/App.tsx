@@ -283,18 +283,23 @@ const Hero = () => {
 
                 {/* BOTÃO */}
                 <GoldButton
-                  className="
-                    w-full
-                    md:w-auto
-                    md:min-w-[290px]
-                    min-h-[68px]
-                    text-base
-                    sm:text-lg
-                    font-black
-                  "
-                >
-                  QUERO COMEÇAR DIREITO
-                </GoldButton>
+  className="
+    w-full
+    md:w-auto
+    md:min-w-[290px]
+    min-h-[68px]
+    text-base
+    sm:text-lg
+    font-black
+  "
+  onClick={() =>
+    document.getElementById('pricing')?.scrollIntoView({
+      behavior: 'smooth'
+    })
+  }
+>
+  QUERO COMEÇAR DIREITO
+</GoldButton>
 
               </div>
 
@@ -561,7 +566,7 @@ const WhatYouWillLearn = () => (
 
         <iframe
           className="absolute inset-0 w-full h-full"
-          src="https://www.youtube.com/embed/SEU_VIDEO"
+          src="https://www.youtube.com/embed/IDegGktaAjM?si=Nwdzcsx6SsQ8Kvgn"
           title="Apresentação do material"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
@@ -923,17 +928,22 @@ const Bonuses = () => {
         <div className="text-center">
 
           <GoldButton
-            className="
-              w-full
-              sm:w-auto
-              min-h-[68px]
-              text-base
-              md:text-lg
-              font-black
-            "
-          >
-            QUERO O MATERIAL COM TODOS OS BÔNUS
-          </GoldButton>
+  className="
+    w-full
+    sm:w-auto
+    min-h-[68px]
+    text-base
+    md:text-lg
+    font-black
+  "
+  onClick={() =>
+    document.getElementById('pricing')?.scrollIntoView({
+      behavior: 'smooth'
+    })
+  }
+>
+  QUERO O MATERIAL COM TODOS OS BÔNUS
+</GoldButton>
 
         </div>
 
@@ -1395,7 +1405,7 @@ const Pricing = () => (
     </h3>
 
     <p className="text-zinc-500 text-sm mt-2 mb-6">
-      Tudo que você precisa do zero ao avançado em Direito
+      Tudo que você precisa para o primeiro ano de Direito
     </p>
 
     {/* MOCKUP (EXCLUSIVO DO COMBO) */}
