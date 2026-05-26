@@ -576,109 +576,109 @@ const WhatYouWillLearn = () => (
       </motion.div>
 
       {/* MATÉRIAS */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-      >
+<motion.div
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+  viewport={{ once: true }}
+>
 
-        <div className="
-          rounded-[32px]
-          border
-          border-zinc-800
-          bg-zinc-900/40
-          p-6
-          md:p-10
-        ">
+  <div className="
+    rounded-[32px]
+    border
+    border-zinc-800
+    bg-zinc-900/40
+    p-6
+    md:p-10
+  ">
 
-          <div className="text-center mb-10">
+    <div className="text-center mb-10">
+
+      <p className="
+        text-red-500
+        text-xs
+        font-bold
+        uppercase
+        tracking-[0.2em]
+        mb-3
+      ">
+        disciplinas incluídas
+      </p>
+
+      <h3 className="
+        text-2xl
+        md:text-4xl
+        font-black
+        text-white
+        leading-tight
+      ">
+        Os principais conteúdos
+        do início da faculdade
+      </h3>
+
+    </div>
+
+    <div className="
+      grid
+      sm:grid-cols-2
+      lg:grid-cols-3
+      gap-4
+    ">
+
+      {[
+        "Introdução ao Estudo do Direito",
+        "Antropologia, Sociologia e Direito",
+        "Filosofia e História do Direito",
+        "Ciência Política, Estado e Constituição",
+        "Criminologia",
+        "Noções de Direito Civil",
+        "Noções de Direito Penal",
+        "Carreiras Jurídicas",
+      ].map((item, i) => {
+        return (
+
+          <div
+            key={i}
+            className="
+              flex
+              items-center
+              gap-3
+              rounded-2xl
+              border
+              border-zinc-800
+              bg-black/40
+              px-4
+              py-4
+            "
+          >
+
+            <div className="
+              w-2.5
+              h-2.5
+              rounded-full
+              bg-red-500
+              shrink-0
+            " />
 
             <p className="
-              text-red-500
-              text-xs
-              font-bold
-              uppercase
-              tracking-[0.2em]
-              mb-3
+              text-sm
+              md:text-base
+              text-zinc-200
+              leading-snug
+              font-medium
             ">
-              disciplinas incluídas
+              {item}
             </p>
 
-            <h3 className="
-              text-2xl
-              md:text-4xl
-              font-black
-              text-white
-              leading-tight
-            ">
-              Os principais conteúdos
-              do início da faculdade
-            </h3>
-
           </div>
 
-          <div className="
-            grid
-            sm:grid-cols-2
-            lg:grid-cols-3
-            gap-4
-          ">
+        );
+      })}
 
-            {[
-              "Introdução ao Estudo do Direito",
-              "Antropologia, Sociologia e Direito",
-              "Filosofia e História do Direito",
-              "Ciência Política, Estado e Constituição",
-              "Criminologia",
-              "Noções de Direito Civil",
-              "Noções de Direito Penal",
-              "Carreiras Jurídicas",
-            ].map((item, i) => (
+    </div>
 
-              <div
-                key={i}
-                className="
-                  flex
-                  items-center
-                  gap-3
-                  rounded-2xl
-                  border
-                  border-zinc-800
-                  bg-black/40
-                  px-4
-                  py-4
-                "
-              >
+  </div>
 
-                <div className="
-                  w-2.5
-                  h-2.5
-                  rounded-full
-                  bg-red-500
-                  shrink-0
-                " />
-
-                <p className="
-                  text-sm
-                  md:text-base
-                  text-zinc-200
-                  leading-snug
-                  font-medium
-                ">
-                  {item}
-                </p>
-
-              </div>
-
-            ))}
-
-          </div>
-
-        </div>
-        
-        </div>
-
-      </motion.div>
+</motion.div>
 
     </div>
 
