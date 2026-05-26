@@ -1294,93 +1294,212 @@ const VideoFeedbacks = () => {
 };
 
 const Pricing = () => (
-  <section id="pricing" className="py-16 md:py-24 lg:py-32 px-6 relative">
-    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-amber-500/10 rounded-full blur-[200px] pointer-events-none" />
-    <div className="max-w-6xl mx-auto">
+  <section id="pricing" className="py-16 md:py-24 lg:py-32 px-6 relative bg-black overflow-hidden">
+
+    {/* glow sutil */}
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-red-500/10 rounded-full blur-[200px] pointer-events-none" />
+
+    <div className="max-w-6xl mx-auto relative z-10">
+
+      {/* HEADER */}
       <div className="text-center mb-12 lg:mb-20">
-        <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Escolha seu acesso</h2>
-        <p className="text-zinc-400">Invista agora e comece o Direito com clareza.</p>
+        <span className="text-red-400 text-xs uppercase tracking-[0.3em] font-bold">
+          ESCOLHA SEU ACESSO
+        </span>
+
+        <h2 className="text-3xl md:text-5xl font-black text-white mt-4 mb-4">
+          Comece simples ou vá direto ao <span className="text-red-500">nível completo</span>
+        </h2>
+
+        <p className="text-zinc-400">
+          Um único investimento para finalmente entender Direito.
+        </p>
       </div>
 
+      {/* GRID */}
       <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
-        {/* Individual */}
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-          <GlassCard className="h-full flex flex-col justify-between p-6 lg:p-10 relative overflow-hidden">
-            <div>
-              <h3 className="text-xl lg:text-2xl font-bold text-white mb-2 uppercase tracking-tighter">Material Individual</h3>
-              <p className="text-zinc-400 mb-8 text-sm lg:text-base">Ciências Políticas + Estado + Constitucional I</p>
-              
-              <div className="mb-8 lg:mb-10">
-                <span className="line-through text-zinc-500 block mb-1">De R$ 25,90</span>
-                <span className="text-4xl lg:text-5xl font-bold text-white">R$ 12,90</span>
-                <span className="text-zinc-400 text-sm ml-2">Pagamento único</span>
-              </div>
 
-              <ul className="space-y-3 lg:space-y-4 mb-10 lg:mb-12">
-                {["Explicações simplificadas", "Linguagem acessível", "Exemplos práticos", "Leitura rápida", "Acesso imediato"].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-zinc-300 text-sm lg:text-base">
-                    <CheckCircle2 size={18} className="text-amber-400" /> {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <GoldButton
-  secondary
-  className="w-full"
-  onClick={() =>
-    window.open("https://pay.cakto.com.br/bysbyw7_890868", "_blank")
-  }
->
-  COMPRAR MATERIAL INDIVIDUAL
-</GoldButton>
-          </GlassCard>
-        </motion.div>
+        {/* E-BOOK INDIVIDUAL */}
+<div className="h-full flex flex-col justify-between p-6 lg:p-10 rounded-3xl bg-zinc-950 border border-zinc-800">
 
-        {/* Combo */}
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-          <div id="combo-offer" className="h-full bg-gradient-to-br from-zinc-900 via-amber-950/20 to-zinc-900 border-2 border-amber-400/50 rounded-3xl p-6 lg:p-10 flex flex-col justify-between shadow-[0_0_80px_rgba(251,191,36,0.15)] relative">
-            <div>
-              <div className="mb-6 inline-block">
-                <Badge>MAIS ESCOLHIDO</Badge>
-              </div>
-              <h3 className="text-2xl lg:text-3xl font-bold text-white mb-2 uppercase tracking-tighter">COMBO COMPLETO 2026</h3>
-              <p className="text-amber-400/80 mb-8 font-medium text-sm lg:text-base">12 disciplinas + 04 bônus exclusivos</p>
-              
-              <div className="mb-8 lg:mb-10">
-                <span className="line-through text-zinc-500 block mb-1">De R$ 157,90</span>
-                <span className="text-5xl lg:text-6xl font-bold text-white tracking-tighter">R$ 57,90</span>
-                <span className="text-amber-400/60 text-xs sm:text-sm block mt-1 italic leading-tight">Comprar separado custaria mais de R$ 157,90.</span>
-              </div>
+  <div>
 
-              <div className="grid grid-cols-2 gap-y-2 lg:gap-y-3 gap-x-4 mb-10 lg:mb-12">
-                {[
-                  "Introdução ao Direito", "Ciências Políticas", "Constitucional I", "Filosofia", "Sociologia", "Antropologia", 
-                  "Criminologia", "História do Direito", "Civil I", "Penal I", "Hermenêutica", "Teoria do Processo"
-                ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-2 text-zinc-200 text-[10px] sm:text-xs lg:text-sm font-medium">
-                    <div className="w-1 h-1 lg:w-1.5 lg:h-1.5 rounded-full bg-amber-400" /> {item}
-                  </div>
-                ))}
-              </div>
+    <h3 className="text-xl lg:text-2xl font-bold text-white uppercase tracking-tight">
+      E-Book 1 — Semestre Inicial
+    </h3>
 
-              <div className="space-y-3 lg:space-y-4 pt-6 border-t border-white/10 mt-6 md:mt-0 lg:mt-6">
-                {["Esquemas simplificados", "Plano de estudo", "Simulados", "Vitalício"].map((item, i) => (
-                  <div key={i} className="flex items-center gap-3 text-white text-xs lg:text-sm font-bold">
-                    <Award size={16} className="text-amber-400" /> {item}
-                  </div>
-                ))}
-              </div>
-            </div>
-            <GoldButton
-  className="w-full mt-10"
-  onClick={() =>
-    window.open("https://pay.cakto.com.br/33wuu35", "_blank")
-  }
->
-  GARANTIR COMBO COMPLETO
-</GoldButton>
-          </div>
-        </motion.div>
+    <p className="text-zinc-500 text-sm mt-2 mb-6">
+      A base essencial para começar o Direito sem confusão
+    </p>
+
+    {/* PREÇO */}
+    <div className="mb-8 p-5 rounded-2xl bg-zinc-900 border border-zinc-800">
+      <p className="text-zinc-500 line-through text-sm">
+        de R$ 97,90
+      </p>
+
+      <div className="flex items-baseline gap-2 mt-1">
+        <span className="text-red-400 text-sm font-bold">por R$</span>
+        <span className="text-5xl font-black text-white">37,90</span>
+      </div>
+
+      <p className="text-zinc-500 text-xs mt-2">
+        Acesso imediato • Pagamento único
+      </p>
+    </div>
+
+    {/* DISCIPLINAS */}
+    <ul className="space-y-3 mb-10">
+      {[
+        "Introdução ao Direito",
+        "Ciências Políticas, Estado e Constituição",
+        "Antropologia, Sociologia e Direito",
+        "História do Direito",
+        "Filosofia",
+        "Criminologia"
+      ].map((item, i) => (
+        <li key={i} className="flex items-center gap-3 text-zinc-400 text-sm">
+          <CheckCircle2 size={16} className="text-red-500" />
+          {item}
+        </li>
+      ))}
+    </ul>
+
+  </div>
+
+  <GoldButton
+    secondary
+    className="w-full"
+    onClick={() =>
+      window.open("https://pay.cakto.com.br/mecgdur", "_blank")
+    }
+  >
+    QUERO O E-BOOK
+  </GoldButton>
+
+</div>
+
+        {/* ===================== COMBO ===================== */}
+<div className="h-full flex flex-col justify-between p-6 lg:p-10 rounded-3xl bg-zinc-950 border-2 border-red-500/40 relative overflow-hidden shadow-[0_0_60px_rgba(239,68,68,0.12)]">
+
+  {/* BADGE */}
+  <div className="absolute top-0 right-0 bg-red-500 text-black text-[10px] font-black px-4 py-1 uppercase tracking-widest rounded-bl-xl">
+    MAIS COMPLETO
+  </div>
+
+  <div>
+
+    {/* TÍTULO */}
+    <h3 className="text-2xl lg:text-3xl font-black text-white uppercase">
+      Combo Completo 2026
+    </h3>
+
+    <p className="text-zinc-500 text-sm mt-2 mb-6">
+      Tudo que você precisa do zero ao avançado em Direito
+    </p>
+
+    {/* MOCKUP (EXCLUSIVO DO COMBO) */}
+    <div className="mb-8 rounded-2xl bg-zinc-900 border border-zinc-800 p-4">
+      <img
+        src="/mockupof.png"
+        alt="Combo Direito"
+        className="w-full rounded-xl"
+      />
+    </div>
+
+    {/* PREÇO */}
+    <div className="mb-8 p-5 rounded-2xl bg-red-500/10 border border-red-500/20">
+
+      <p className="text-zinc-400 line-through text-sm">
+        de R$ 157,90
+      </p>
+
+      <div className="flex items-baseline gap-2 mt-1">
+        <span className="text-red-400 text-sm font-bold">por R$</span>
+        <span className="text-5xl font-black text-white">57,90</span>
+      </div>
+
+      <p className="text-red-400/70 text-xs mt-2 font-medium">
+        Melhor escolha para quem quer evoluir rápido no Direito
+      </p>
+
+    </div>
+
+    {/* DISCIPLINAS */}
+    <div className="grid grid-cols-2 gap-2 mb-10">
+
+      {[
+        "Introdução ao Direito",
+        "Ciências Políticas, Estado e Constituição",
+        "Antropologia, Sociologia e Direito",
+        "História do Direito",
+        "Filosofia",
+        "Criminologia",
+        "Direito Constitucional I",
+        "Direito Civil I",
+        "Direito Penal I",
+        "Teoria Geral do Processo",
+        "Hermenêutica Jurídica",
+        "Plano de Estudo"
+      ].map((item, i) => (
+        <div key={i} className="flex items-center gap-2 text-zinc-300 text-xs">
+          <div className="w-1.5 h-1.5 bg-red-500 rounded-full" />
+          {item}
+        </div>
+      ))}
+
+    </div>
+
+    {/* RECURSOS DO COMBO */}
+    <div className="space-y-3 lg:space-y-4 pt-6 border-t border-zinc-800 mt-6">
+
+      {[
+        "Esquemas simplificados",
+        "Exemplos práticos",
+        "Associação com o Código",
+        "Espaço para anotações",
+        "Plano de estudo incluso",
+        "Simulado por disciplina"
+      ].map((item, i) => (
+        <div
+          key={i}
+          className="flex items-center gap-3 text-zinc-200 text-xs lg:text-sm font-semibold"
+        >
+          <Award size={16} className="text-red-500" />
+          {item}
+        </div>
+      ))}
+
+    </div>
+
+    {/* UPSSELL NATURAL */}
+    <div className="mt-8 p-4 rounded-2xl bg-zinc-900 border border-zinc-800">
+
+      <p className="text-red-400 text-xs uppercase tracking-widest font-bold mb-2">
+        Recomendado
+      </p>
+
+      <p className="text-zinc-300 text-sm leading-relaxed">
+        Se você quer evitar meses perdido tentando entender o básico sozinho,
+        o combo já te entrega tudo estruturado do zero ao avançado.
+      </p>
+
+    </div>
+
+  </div>
+
+  {/* CTA */}
+  <GoldButton
+    className="w-full mt-8"
+    onClick={() =>
+      window.open("https://pay.cakto.com.br/33wuu35", "_blank")
+    }
+  >
+    GARANTIR COMBO COMPLETO
+  </GoldButton>
+
+</div>
+
       </div>
     </div>
   </section>
