@@ -524,29 +524,54 @@ const WhatYouWillLearn = () => (
           </div>
 
           {/* VIDEO */}
-          <div className="relative w-full h-full">
+<div className="relative w-full flex justify-center p-4 md:p-6 lg:p-0">
 
-            <div className="
-              relative
-              aspect-video
-              lg:aspect-auto
-              lg:h-full
-              min-h-[260px]
-            ">
+  <div className="
+    relative
+    w-full
+    max-w-[320px]
+    sm:max-w-[360px]
+    lg:max-w-[380px]
+  ">
 
-              <iframe
-                className="absolute inset-0 w-full h-full"
-                src="https://www.youtube.com/embed/SEU_VIDEO"
-                title="Apresentação do material"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
+    {/* GLOW */}
+    <div className="
+      absolute
+      inset-0
+      bg-red-500/20
+      blur-[80px]
+      rounded-full
+    " />
 
-            </div>
+    {/* FRAME */}
+    <div className="
+      relative
+      overflow-hidden
+      rounded-[32px]
+      border
+      border-zinc-800
+      bg-black
+      shadow-2xl
+    ">
 
-          </div>
+      {/* SHORTS */}
+      <div className="relative aspect-[9/16] w-full">
 
-        </div>
+        <iframe
+          className="absolute inset-0 w-full h-full"
+          src="https://www.youtube.com/embed/SEU_VIDEO"
+          title="Apresentação do material"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
 
       </motion.div>
 
