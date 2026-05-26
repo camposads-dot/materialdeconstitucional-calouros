@@ -147,35 +147,37 @@ const Hero = () => {
 
           {/* HEADLINE */}
           <h1 className="
-            text-[2.7rem]
-            sm:text-[4.8rem]
-            lg:text-[6rem]
-            font-black
-            leading-[0.92]
-            tracking-[-0.05em]
-            text-white
-            max-w-[950px]
-            mx-auto
-          ">
+  text-[2.7rem]
+  sm:text-[4.6rem]
+  lg:text-[5.3rem]
+  xl:text-[5.8rem]
+  font-black
+  leading-[0.9]
+  tracking-[-0.05em]
+  text-white
+  max-w-[1100px]
+  mx-auto
+">
 
-            Aprenda os{" "}
+  Aprenda os{" "}
 
-            <span className="text-red-500">
-              Primeiros 6
-              <br />
-              Meses
-            </span>
+  <span className="text-red-500">
+    Primeiros 6 Meses
+  </span>
 
-            {" "}da Faculdade de Direito
-            <br />
+  <br className="hidden lg:block" />
 
-            em apenas{" "}
+  da Faculdade de Direito
 
-            <span className="text-red-500">
-              7 Dias
-            </span>
+  <br />
 
-          </h1>
+  em apenas{" "}
+
+  <span className="text-red-500">
+    7 Dias
+  </span>
+
+</h1>
 
           {/* SUB */}
           <p className="
@@ -956,14 +958,58 @@ const SocialProof = () => {
     <section className="py-16 md:py-24 lg:py-32 px-4 sm:px-6 bg-zinc-950/50 overflow-hidden shrink-0">
       
       <div className="max-w-7xl mx-auto text-center mb-12 lg:mb-16">
-        <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
-          O QUE OS CALOUROS ACHAM?
-        </h2>
 
-        <p className="text-zinc-400">
-          Veja feedbacks reais de estudantes que começaram a entender o Direito de verdade.
-        </p>
-      </div>
+  <div className="flex justify-center mb-5">
+    <div className="
+      inline-flex
+      items-center
+      gap-2
+      px-4
+      py-2
+      rounded-full
+      border
+      border-red-500/20
+      bg-red-500/10
+      text-red-400
+      text-[11px]
+      font-bold
+      uppercase
+      tracking-[0.2em]
+    ">
+      feedbacks reais
+    </div>
+  </div>
+
+  <h2 className="
+    text-3xl
+    md:text-5xl
+    font-black
+    text-white
+    leading-[0.95]
+    tracking-tight
+    mb-5
+  ">
+    O que os{" "}
+    <span className="text-red-500">
+      calouros
+    </span>{" "}
+    estão achando?
+  </h2>
+
+  <p className="
+    text-zinc-400
+    text-base
+    md:text-lg
+    leading-relaxed
+    max-w-2xl
+    mx-auto
+  ">
+    Veja feedbacks reais de estudantes
+    que começaram a entender o Direito
+    com mais clareza e confiança.
+  </p>
+
+</div>
 
       <div className="overflow-hidden relative">
         <motion.div
@@ -1150,27 +1196,81 @@ const TargetAudience = () => (
 
 const VideoFeedbacks = () => {
   return (
-    <section className="py-16 md:py-24 lg:py-32 px-6 bg-zinc-950/70 relative overflow-hidden">
-      
-      {/* Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-amber-500/10 blur-[120px] rounded-full pointer-events-none" />
+    <section className="py-16 md:py-24 lg:py-32 px-6 bg-black relative overflow-hidden">
+
+      {/* GLOW */}
+      <div className="
+        absolute
+        top-0
+        left-1/2
+        -translate-x-1/2
+        w-[500px]
+        h-[500px]
+        bg-red-500/10
+        blur-[120px]
+        rounded-full
+        pointer-events-none
+      " />
 
       <div className="max-w-4xl mx-auto relative z-10 text-center">
 
-        <div className="flex justify-center mb-6">
-          <Badge>
+        {/* BADGE */}
+        <div className="flex justify-center mb-5">
+
+          <div className="
+            inline-flex
+            items-center
+            gap-2
+            px-4
+            py-2
+            rounded-full
+            border
+            border-red-500/20
+            bg-red-500/10
+            text-red-400
+            text-[11px]
+            font-bold
+            uppercase
+            tracking-[0.2em]
+          ">
+
             <ShieldCheck size={14} />
-            Feedback Real
-          </Badge>
+
+            feedback real
+
+          </div>
+
         </div>
 
-        <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 leading-tight">
-          Feedback Real e{" "}
-          <span className="text-amber-400">Alerta contra Golpes</span>
+        {/* TITULO */}
+        <h2 className="
+          text-3xl
+          md:text-5xl
+          font-black
+          text-white
+          leading-[0.95]
+          tracking-tight
+          mb-5
+        ">
+          Feedback real e{" "}
+          <span className="text-red-500">
+            alerta contra golpes
+          </span>
         </h2>
 
-        <p className="text-lg text-zinc-400 mb-10">
-          Assiste esse feedback e tire suas conclusões
+        {/* TEXTO */}
+        <p className="
+          text-zinc-400
+          text-base
+          md:text-lg
+          leading-relaxed
+          max-w-2xl
+          mx-auto
+          mb-10
+        ">
+          Assista esse feedback e veja por que
+          tantos estudantes estão confiando
+          nesse material.
         </p>
 
         {/* VIDEO */}
@@ -1287,36 +1387,229 @@ const Pricing = () => (
 );
 
 const Objection = () => (
-  <section className="py-16 md:py-24 lg:py-32 px-6 text-center bg-zinc-950/80">
-    <div className="max-w-4xl mx-auto">
-      <h2 className="text-2xl md:text-4xl font-bold text-white mb-12 lg:mb-16 underline decoration-amber-400/20">Ok… mas se é tão bom, por que está tão barato?</h2>
-      <div className="grid md:grid-cols-2 gap-8 lg:gap-12 text-left mb-12 lg:mb-16">
-        <div>
-          <h3 className="text-amber-400 font-bold mb-4 uppercase text-xs tracking-widest flex items-center gap-2">
-            <span className="w-5 h-5 rounded-full bg-amber-400 text-black flex items-center justify-center text-[10px]">01</span> Razão #1
-          </h3>
-          <p className="text-lg lg:text-xl text-white font-medium">“O objetivo é tornar o acesso possível para <span className="text-amber-400">qualquer</span> estudante de Direito.”</p>
+  <section className="py-16 md:py-24 lg:py-32 px-6 text-center bg-black overflow-hidden relative">
+
+    {/* GLOW */}
+    <div className="
+      absolute
+      top-0
+      left-1/2
+      -translate-x-1/2
+      w-[500px]
+      h-[500px]
+      bg-red-500/10
+      blur-[120px]
+      rounded-full
+      pointer-events-none
+    " />
+
+    <div className="max-w-5xl mx-auto relative z-10">
+
+      {/* BADGE */}
+      <div className="flex justify-center mb-5">
+
+        <div className="
+          inline-flex
+          items-center
+          gap-2
+          px-4
+          py-2
+          rounded-full
+          border
+          border-red-500/20
+          bg-red-500/10
+          text-red-400
+          text-[11px]
+          font-bold
+          uppercase
+          tracking-[0.2em]
+        ">
+          dúvida comum
         </div>
-        <div>
-          <h3 className="text-amber-400 font-bold mb-4 uppercase text-xs tracking-widest flex items-center gap-2">
-            <span className="w-5 h-5 rounded-full bg-amber-400 text-black flex items-center justify-center text-[10px]">02</span> Razão #2
-          </h3>
-          <p className="text-lg lg:text-xl text-white font-medium">“O valor simbólico filtra curiosos e atrai quem realmente quer <span className="text-amber-400">aprender</span>.”</p>
-        </div>
+
       </div>
-      <p className="text-sm lg:text-base text-zinc-500 mb-8 lg:mb-10">Sem mensalidade. Sem pegadinhas. Sem letras miúdas.</p>
+
+      {/* TITULO */}
+      <h2 className="
+        text-3xl
+        md:text-5xl
+        font-black
+        text-white
+        leading-[0.95]
+        tracking-tight
+        mb-14
+        max-w-4xl
+        mx-auto
+      ">
+        “Ok… mas se esse material é tão bom,
+        por que ele está{" "}
+        <span className="text-red-500">
+          tão barato?
+        </span>
+        ”
+      </h2>
+
+      {/* CARDS */}
+      <div className="
+        grid
+        md:grid-cols-2
+        gap-6
+        lg:gap-8
+        text-left
+        mb-12
+      ">
+
+        {/* CARD 1 */}
+        <div className="
+          rounded-[28px]
+          border
+          border-zinc-800
+          bg-zinc-900/50
+          backdrop-blur-sm
+          p-6
+          md:p-8
+        ">
+
+          <div className="
+            flex
+            items-center
+            gap-3
+            mb-5
+          ">
+
+            <div className="
+              w-8
+              h-8
+              rounded-full
+              bg-red-500
+              text-white
+              flex
+              items-center
+              justify-center
+              text-xs
+              font-black
+            ">
+              01
+            </div>
+
+            <p className="
+              text-red-400
+              text-xs
+              font-bold
+              uppercase
+              tracking-[0.2em]
+            ">
+              razão #1
+            </p>
+
+          </div>
+
+          <p className="
+            text-lg
+            md:text-2xl
+            text-white
+            font-semibold
+            leading-relaxed
+          ">
+            O objetivo é tornar o acesso possível
+            para{" "}
+            <span className="text-red-500">
+              qualquer estudante
+            </span>{" "}
+            de Direito.
+          </p>
+
+        </div>
+
+        {/* CARD 2 */}
+        <div className="
+          rounded-[28px]
+          border
+          border-zinc-800
+          bg-zinc-900/50
+          backdrop-blur-sm
+          p-6
+          md:p-8
+        ">
+
+          <div className="
+            flex
+            items-center
+            gap-3
+            mb-5
+          ">
+
+            <div className="
+              w-8
+              h-8
+              rounded-full
+              bg-red-500
+              text-white
+              flex
+              items-center
+              justify-center
+              text-xs
+              font-black
+            ">
+              02
+            </div>
+
+            <p className="
+              text-red-400
+              text-xs
+              font-bold
+              uppercase
+              tracking-[0.2em]
+            ">
+              razão #2
+            </p>
+
+          </div>
+
+          <p className="
+            text-lg
+            md:text-2xl
+            text-white
+            font-semibold
+            leading-relaxed
+          ">
+            O valor simbólico ajuda a separar
+            curiosos de quem realmente quer{" "}
+            <span className="text-red-500">
+              aprender Direito
+            </span>.
+          </p>
+
+        </div>
+
+      </div>
+
+      {/* TEXTO */}
+      <p className="
+        text-zinc-500
+        text-sm
+        md:text-base
+        mb-10
+      ">
+        Sem mensalidade. Sem pegadinhas.
+        Sem letras miúdas.
+      </p>
+
+      {/* BOTAO */}
       <GoldButton
-  secondary
-  className="mx-auto w-full sm:w-auto"
-  onClick={() =>
-    document.getElementById("pricing")?.scrollIntoView({
-      behavior: "smooth",
-    })
-  }
->
-  OK! ME CONVENCEU
-</GoldButton>
+        secondary
+        className="mx-auto w-full sm:w-auto"
+        onClick={() =>
+          document.getElementById("pricing")?.scrollIntoView({
+            behavior: "smooth",
+          })
+        }
+      >
+        OK! ME CONVENCEU
+      </GoldButton>
+
     </div>
+
   </section>
 );
 
