@@ -1439,7 +1439,7 @@ export default function App() {
       <main className="overflow-x-hidden">
         <Hero />
         <WhatYouWillLearn />
-        <Bonus />
+        <Bonuses />
         <SocialProof />
         <VideoFeedbacks />
         <TargetAudience />
