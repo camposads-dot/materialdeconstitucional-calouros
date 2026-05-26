@@ -570,9 +570,7 @@ const WhatYouWillLearn = () => (
     </div>
 
   </div>
-
-</div>
-
+  
       </motion.div>
 
       {/* MATÉRIAS */}
