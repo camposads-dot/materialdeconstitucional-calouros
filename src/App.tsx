@@ -804,25 +804,153 @@ const SocialProof = () => {
 };
 
 const TargetAudience = () => (
-  <section className="py-16 md:py-24 lg:py-32 px-6">
-    <div className="max-w-7xl mx-auto text-center">
-      <h2 className="text-3xl lg:text-4xl font-bold text-white mb-12 lg:mb-16">Para quem é esse material?</h2>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-        {[
-          { title: "Calouros de Direito", desc: "Para quem ainda está perdido nas primeiras aulas e quer entender a base rápido." },
-          { title: "Estudantes do 2º período", desc: "Para quem quer reforçar a base e acompanhar melhor as matérias mais complexas." },
-          { title: "Alunos em revisão", desc: "Para quem precisa revisar conteúdos fundamentais de forma rápida e eficiente." }
-        ].map((item, i) => (
-          <GlassCard key={i} className="text-center group">
-            <div className="w-16 h-16 rounded-full bg-amber-400/10 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-              <Users className="text-amber-400" />
-            </div>
-            <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
-            <p className="text-zinc-400">{item.desc}</p>
-          </GlassCard>
-        ))}
+  <section className="py-16 md:py-24 lg:py-32 px-4 sm:px-6 bg-black">
+    
+    <div className="max-w-6xl mx-auto text-center">
+
+      <div className="mb-12 md:mb-16">
+
+        <div className="flex justify-center mb-5">
+          <div className="
+            inline-flex
+            items-center
+            gap-2
+            px-4
+            py-2
+            rounded-full
+            border
+            border-red-500/20
+            bg-red-500/10
+            text-red-400
+            text-[11px]
+            font-bold
+            uppercase
+            tracking-[0.2em]
+          ">
+            para quem é esse material
+          </div>
+        </div>
+
+        <h2 className="
+          text-3xl
+          md:text-5xl
+          font-black
+          text-white
+          leading-[0.95]
+          tracking-tight
+        ">
+          Feito para quem quer começar
+          o Direito com{" "}
+          <span className="text-red-500">
+            clareza
+          </span>
+        </h2>
+
       </div>
+
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+
+        {[
+          {
+            title: "Calouros de Direito",
+            desc: "Para quem ainda está perdido nas primeiras aulas e quer entender a base rapidamente."
+          },
+
+          {
+            title: "Estudantes do 2º período",
+            desc: "Para quem deseja reforçar os fundamentos e acompanhar melhor as próximas matérias."
+          },
+
+          {
+            title: "Alunos em revisão",
+            desc: "Para quem quer revisar os conteúdos essenciais de forma prática e organizada."
+          }
+
+        ].map((item, i) => (
+
+          <div
+            key={i}
+            className="
+              relative
+              overflow-hidden
+              rounded-[28px]
+              border
+              border-zinc-800
+              bg-zinc-900/50
+              backdrop-blur-sm
+              p-6
+              md:p-8
+              text-center
+              group
+              transition-all
+              duration-300
+              hover:border-red-500/30
+              hover:bg-zinc-900/70
+            "
+          >
+
+            {/* GLOW */}
+            <div className="
+              absolute
+              inset-0
+              bg-gradient-to-b
+              from-red-500/5
+              to-transparent
+              opacity-0
+              group-hover:opacity-100
+              transition-opacity
+            " />
+
+            {/* ICON */}
+            <div className="
+              relative
+              w-16
+              h-16
+              rounded-full
+              bg-red-500/10
+              border
+              border-red-500/20
+              flex
+              items-center
+              justify-center
+              mx-auto
+              mb-6
+              group-hover:scale-110
+              transition-transform
+            ">
+
+              <Users className="text-red-500" size={28} />
+
+            </div>
+
+            <h3 className="
+              text-xl
+              md:text-2xl
+              font-black
+              text-white
+              mb-4
+              leading-tight
+            ">
+              {item.title}
+            </h3>
+
+            <p className="
+              text-zinc-400
+              leading-relaxed
+              text-sm
+              md:text-base
+            ">
+              {item.desc}
+            </p>
+
+          </div>
+
+        ))}
+
+      </div>
+
     </div>
+
   </section>
 );
 
