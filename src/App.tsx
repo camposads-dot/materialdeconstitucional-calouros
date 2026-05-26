@@ -717,7 +717,7 @@ const Bonuses = () => {
   ];
 
   return (
-    <Section className="py-16 md:py-24 px-4 sm:px-6 bg-black overflow-hidden">
+    <section className="py-16 md:py-24 px-4 sm:px-6 bg-black overflow-hidden">
 
       <div className="max-w-6xl mx-auto">
 
@@ -937,7 +937,7 @@ const Bonuses = () => {
 
       </div>
 
-    </Section>
+    </section>
   );
 };
 
