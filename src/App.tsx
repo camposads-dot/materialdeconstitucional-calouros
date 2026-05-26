@@ -162,7 +162,7 @@ const Hero = () => {
   Aprenda os{" "}
 
   <span className="text-red-500">
-    Primeiros 6 Meses
+    Primeiros 6 Meses 
   </span>
 
   <br className="hidden lg:block" />
@@ -1614,110 +1614,492 @@ const Objection = () => (
 );
 
 const DeliveryAndGuarantee = () => (
-  <section className="py-16 md:py-24 lg:py-32 px-6">
-    <div className="max-w-7xl mx-auto">
-      <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-        <GlassCard>
-          <div className="mb-6 bg-amber-400/10 w-14 h-14 lg:w-16 lg:h-16 rounded-full flex items-center justify-center">
-            <MessageCircle className="text-amber-400" />
-          </div>
-          <h2 className="text-2xl lg:text-3xl font-bold text-white mb-4">Em quanto tempo recebo meu acesso?</h2>
-          <p className="text-lg lg:text-xl text-zinc-400 mb-8">Logo após a aprovação do pagamento, você receberá imediatamente o acesso no e-mail utilizado na compra.</p>
-          <div className="space-y-4">
-            <div className="flex items-center gap-3 text-white font-medium">
-              <Zap className="text-amber-400" size={18} /> Acesso imediato
-            </div>
-            <div className="flex items-center gap-3 text-white font-medium">
-              <Download className="text-amber-400" size={18} /> Download rápido
-            </div>
-            <div className="flex items-center gap-3 text-white font-medium">
-              <Lock className="text-amber-400" size={18} /> Acesso vitalício
-            </div>
-          </div>
-        </GlassCard>
+  <section className="py-16 md:py-24 lg:py-32 px-6 bg-black relative overflow-hidden">
 
-        <div className="text-center lg:text-left">
-          <div className="mb-6 lg:mb-8 inline-block">
-            <ShieldCheck size={64} className="text-amber-400 mx-auto lg:mx-0" />
+    {/* GLOW */}
+    <div className="
+      absolute
+      bottom-0
+      left-1/2
+      -translate-x-1/2
+      w-[500px]
+      h-[500px]
+      bg-red-500/10
+      blur-[120px]
+      rounded-full
+      pointer-events-none
+    " />
+
+    <div className="max-w-7xl mx-auto relative z-10">
+
+      <div className="
+        grid
+        lg:grid-cols-2
+        gap-8
+        lg:gap-12
+        items-stretch
+      ">
+
+        {/* ENTREGA */}
+        <div className="
+          rounded-[32px]
+          border
+          border-zinc-800
+          bg-zinc-900/50
+          backdrop-blur-sm
+          p-7
+          md:p-10
+        ">
+
+          <div className="
+            w-16
+            h-16
+            rounded-full
+            bg-red-500/10
+            border
+            border-red-500/20
+            flex
+            items-center
+            justify-center
+            mb-7
+          ">
+            <MessageCircle
+              className="text-red-500"
+              size={28}
+            />
           </div>
-          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">Garantia Incondicional de 7 Dias</h2>
-          <p className="text-lg lg:text-xl text-zinc-400 mb-8">Teste o material por 7 dias completos. Se não sentir clareza, evolução e mais segurança nos estudos, devolvemos 100% do seu dinheiro.</p>
-          <p className="text-xl lg:text-2xl text-amber-400 font-bold italic tracking-tight underline decoration-amber-400/30 font-serif">“Ou você aprende com método — ou devolvemos seu dinheiro.”</p>
+
+          <h2 className="
+            text-3xl
+            md:text-4xl
+            font-black
+            text-white
+            leading-tight
+            tracking-tight
+            mb-5
+          ">
+            Em quanto tempo
+            recebo meu acesso?
+          </h2>
+
+          <p className="
+            text-zinc-400
+            text-base
+            md:text-lg
+            leading-relaxed
+            mb-8
+          ">
+            Assim que o pagamento for aprovado,
+            você recebe acesso imediato no e-mail
+            utilizado na compra.
+          </p>
+
+          <div className="space-y-4">
+
+            <div className="
+              flex
+              items-center
+              gap-3
+              text-white
+              font-semibold
+            ">
+              <Zap
+                className="text-red-500"
+                size={18}
+              />
+
+              Acesso imediato
+            </div>
+
+            <div className="
+              flex
+              items-center
+              gap-3
+              text-white
+              font-semibold
+            ">
+              <Download
+                className="text-red-500"
+                size={18}
+              />
+
+              Download rápido
+            </div>
+
+            <div className="
+              flex
+              items-center
+              gap-3
+              text-white
+              font-semibold
+            ">
+              <Lock
+                className="text-red-500"
+                size={18}
+              />
+
+              Acesso vitalício
+            </div>
+
+          </div>
+
         </div>
+
+        {/* GARANTIA */}
+        <div className="
+          rounded-[32px]
+          border
+          border-zinc-800
+          bg-zinc-900/50
+          backdrop-blur-sm
+          p-7
+          md:p-10
+          text-center
+          lg:text-left
+        ">
+
+          <div className="
+            w-16
+            h-16
+            rounded-full
+            bg-red-500/10
+            border
+            border-red-500/20
+            flex
+            items-center
+            justify-center
+            mb-7
+            mx-auto
+            lg:mx-0
+          ">
+            <ShieldCheck
+              size={30}
+              className="text-red-500"
+            />
+          </div>
+
+          <h2 className="
+            text-3xl
+            md:text-4xl
+            font-black
+            text-white
+            leading-tight
+            tracking-tight
+            mb-5
+          ">
+            Garantia
+            incondicional
+            de 7 dias
+          </h2>
+
+          <p className="
+            text-zinc-400
+            text-base
+            md:text-lg
+            leading-relaxed
+            mb-8
+          ">
+            Teste o material por 7 dias completos.
+            Se não sentir mais clareza, evolução
+            e segurança nos estudos,
+            devolvemos 100% do seu dinheiro.
+          </p>
+
+          <p className="
+            text-xl
+            md:text-2xl
+            text-red-500
+            font-black
+            italic
+            leading-relaxed
+          ">
+            “Ou você aprende com método —
+            ou devolvemos seu dinheiro.”
+          </p>
+
+        </div>
+
       </div>
+
     </div>
+
   </section>
 );
 
 const FAQ = () => {
   const questions = [
-    { q: "Serve para qualquer faculdade?", a: "Sim! Os conteúdos de Ciências Políticas, Teoria do Estado e Constitucional I são universais e seguem a base curricular nacional exigida pelo MEC e OAB." },
-    { q: "Como recebo o material?", a: "Imediatamente em seu e-mail após a confirmação do pagamento. O material é digital (PDF interativo) e você pode baixar em qualquer dispositivo." },
-    { q: "Posso imprimir?", a: "Sim, o material é formatado para leitura digital e também para impressão em alta qualidade." },
-    { q: "Funciona no celular?", a: "Sim, é totalmente responsivo e otimizado para leitura em tablets, smartphones e computadores." },
-    { q: "O acesso é vitalício?", a: "Sim! Uma vez comprado, o material é seu para sempre, incluindo as atualizações de 2026." }
+    {
+      q: "Serve para qualquer faculdade?",
+      a: "Sim! Os conteúdos seguem a base curricular utilizada nos primeiros períodos de Direito em praticamente todas as faculdades."
+    },
+    {
+      q: "Como recebo o material?",
+      a: "O acesso é enviado imediatamente para o e-mail utilizado na compra após a aprovação do pagamento."
+    },
+    {
+      q: "Posso imprimir?",
+      a: "Sim. O material foi desenvolvido tanto para leitura digital quanto para impressão."
+    },
+    {
+      q: "Funciona no celular?",
+      a: "Sim! O conteúdo é totalmente adaptado para celulares, tablets e computadores."
+    },
+    {
+      q: "O acesso é vitalício?",
+      a: "Sim. Após a compra, o material será seu permanentemente."
+    }
   ];
 
   return (
-    <section className="py-16 md:py-24 lg:py-32 px-6">
+    <section className="py-16 md:py-24 lg:py-32 px-6 bg-black">
       <div className="max-w-3xl mx-auto text-center">
-        <h2 className="text-3xl lg:text-4xl font-bold text-white mb-12 lg:mb-16">Perguntas Frequentes</h2>
+
+        {/* TOPO */}
+        <div className="mb-12 lg:mb-16">
+
+          <div className="flex justify-center mb-5">
+            <div className="
+              inline-flex
+              items-center
+              gap-2
+              px-4
+              py-2
+              rounded-full
+              border
+              border-red-500/20
+              bg-red-500/10
+              text-red-400
+              text-[11px]
+              font-bold
+              uppercase
+              tracking-[0.2em]
+            ">
+              dúvidas frequentes
+            </div>
+          </div>
+
+          <h2 className="
+            text-3xl
+            lg:text-5xl
+            font-black
+            text-white
+            leading-[0.95]
+            tracking-tight
+            mb-5
+          ">
+            Perguntas que os{" "}
+            <span className="text-red-500">
+              calouros mais fazem
+            </span>
+          </h2>
+
+          <p className="
+            text-zinc-400
+            text-base
+            md:text-lg
+            leading-relaxed
+            max-w-2xl
+            mx-auto
+          ">
+            Tudo o que você precisa saber antes de garantir seu acesso.
+          </p>
+
+        </div>
+
+        {/* FAQ */}
         <div className="space-y-4">
+
           {questions.map((item, i) => (
-            <motion.details key={i} className="group text-left">
-              <summary className="cursor-pointer list-none flex items-center justify-between p-4 lg:p-6 bg-white/5 border border-white/10 rounded-2xl hover:border-amber-400 transition-colors">
-                <span className="text-base lg:text-lg font-bold text-white">{item.q}</span>
-                <ChevronDown className="text-zinc-500 group-open:rotate-180 transition-transform" />
+
+            <motion.details
+              key={i}
+              className="group text-left"
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.05 }}
+            >
+
+              <summary className="
+                cursor-pointer
+                list-none
+                flex
+                items-center
+                justify-between
+                gap-4
+                p-5
+                md:p-6
+                rounded-[24px]
+                border
+                border-zinc-800
+                bg-zinc-900/50
+                hover:border-red-500/30
+                transition-all
+                duration-300
+              ">
+
+                <span className="
+                  text-base
+                  md:text-lg
+                  font-bold
+                  text-white
+                  leading-snug
+                ">
+                  {item.q}
+                </span>
+
+                <div className="
+                  w-9
+                  h-9
+                  rounded-full
+                  border
+                  border-red-500/20
+                  bg-red-500/10
+                  flex
+                  items-center
+                  justify-center
+                  shrink-0
+                ">
+                  <ChevronDown className="
+                    text-red-400
+                    w-4
+                    h-4
+                    group-open:rotate-180
+                    transition-transform
+                    duration-300
+                  " />
+                </div>
+
               </summary>
-              <div className="p-4 lg:p-6 text-sm lg:text-base text-zinc-400 leading-relaxed bg-white/2 rounded-b-2xl animate-in fade-in slide-in-from-top-1">
+
+              <div className="
+                px-5
+                md:px-6
+                pb-6
+                pt-3
+                text-sm
+                md:text-base
+                text-zinc-400
+                leading-relaxed
+                bg-zinc-900/30
+                border-x
+                border-b
+                border-zinc-800
+                rounded-b-[24px]
+              ">
                 {item.a}
               </div>
+
             </motion.details>
+
           ))}
+
         </div>
+
       </div>
     </section>
   );
 };
 
 const Bio = () => (
-  <section className="py-16 md:py-24 lg:py-32 px-6 bg-zinc-950/80">
+  <section className="py-16 md:py-24 lg:py-32 px-6 bg-black">
     <div className="max-w-5xl mx-auto flex flex-col lg:flex-row items-center gap-10 lg:gap-16 text-center lg:text-left">
+
+      {/* FOTO */}
       <div className="relative shrink-0">
-        <div className="absolute inset-0 bg-amber-400/20 blur-3xl rounded-full" />
-        <div className="w-48 h-48 lg:w-64 lg:h-64 rounded-full overflow-hidden border-4 border-amber-400/20 relative shadow-2xl mx-auto">
-          <img src="/perfil.png" alt="Natan Campos" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-red-500/10 blur-3xl rounded-full" />
+        
+        <div className="w-48 h-48 lg:w-64 lg:h-64 rounded-full overflow-hidden border-4 border-red-500/20 relative shadow-2xl mx-auto">
+          <img
+            src="/perfil.png"
+            alt="Natan Campos"
+            className="w-full h-full object-cover"
+          />
         </div>
       </div>
+
+      {/* TEXTO */}
       <div className="flex-1">
-        <span className="text-amber-400 font-bold tracking-widest uppercase text-xs lg:text-sm mb-2 block">QUEM TE AJUDARÁ</span>
-        <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6 uppercase flex items-center justify-center lg:justify-start gap-2">OPA! MUITO PRAZER 👋</h2>
+
+        <span className="text-red-400 font-bold tracking-widest uppercase text-xs lg:text-sm mb-2 block">
+          QUEM TE AJUDARÁ
+        </span>
+
+        <h2 className="text-3xl lg:text-4xl font-black text-white mb-6 uppercase flex items-center justify-center lg:justify-start gap-2">
+          OPA! MUITO PRAZER 👋
+        </h2>
+
         <p className="text-lg lg:text-xl text-zinc-300 leading-relaxed mb-6">
           Me chamo <span className="font-bold text-white">Natan Campos</span>. Atualmente no 7º período de Direito, já ajudei mais de 400 calouros a dominarem a base do curso sem linguagem complicada.
         </p>
+
         <p className="text-sm lg:text-base text-zinc-400 mb-8 italic">
           “Minha missão é economizar seu tempo e simplificar o aprendizado jurídico para que você não precise passar meses perdido tentando entender matérias complexas.”
         </p>
+
+        {/* BADGES */}
         <div className="flex flex-wrap justify-center lg:justify-start gap-3 mb-8">
-          <Badge>Método Validado</Badge>
-          <Badge>+400 Alunos</Badge>
-          <Badge>Didática Simplificada</Badge>
+          <Badge className="bg-zinc-900 border border-zinc-800 text-zinc-300">
+            Método Validado
+          </Badge>
+
+          <Badge className="bg-zinc-900 border border-zinc-800 text-zinc-300">
+            +400 Alunos
+          </Badge>
+
+          <Badge className="bg-zinc-900 border border-zinc-800 text-zinc-300">
+            Didática Simplificada
+          </Badge>
         </div>
-        <a href="#" className="flex items-center justify-center lg:justify-start gap-2 text-white hover:text-amber-400 transition-colors">
-          <Instagram size={20} /> <span className="font-bold">@nataneodireito</span>
+
+        {/* INSTAGRAM */}
+        <a
+          href="#"
+          className="flex items-center justify-center lg:justify-start gap-2 text-zinc-300 hover:text-red-400 transition-colors"
+        >
+          <Instagram size={20} />
+          <span className="font-bold">@nataneodireito</span>
         </a>
+
       </div>
     </div>
   </section>
 );
 
 const FinalCTA = () => (
-  <section className="py-24 md:py-32 lg:py-40 px-6 text-center relative overflow-hidden">
-    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-amber-400/[0.03] to-amber-400/[0.07]" />
-    <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} className="relative z-10 max-w-4xl mx-auto">
-      <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-8 tracking-tighter leading-tight">Comece o Direito entendendo a base que <span className="text-amber-400">realmente importa.</span></h2>
-      <p className="text-lg sm:text-xl md:text-2xl text-zinc-400 mb-10 lg:mb-12">Pare de se sentir perdido nas aulas.</p>
-      <GoldButton onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })} className="mx-auto w-full sm:w-auto !text-base sm:!text-xl !px-8 sm:!px-12 !py-4 sm:!py-6 shadow-[0_0_50px_rgba(251,191,36,0.3)]">
+  <section className="py-24 md:py-32 lg:py-40 px-6 text-center relative overflow-hidden bg-black">
+    
+    {/* FUNDO SUTIL (substitui amber por vermelho premium) */}
+    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-red-500/[0.03] to-red-500/[0.06]" />
+
+    <motion.div
+      initial={{ opacity: 0, scale: 0.9 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      className="relative z-10 max-w-4xl mx-auto"
+    >
+      <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black text-white mb-8 tracking-tighter leading-tight">
+        Comece o Direito entendendo a base que{" "}
+        <span className="text-red-500">
+          realmente importa.
+        </span>
+      </h2>
+
+      <p className="text-lg sm:text-xl md:text-2xl text-zinc-400 mb-10 lg:mb-12">
+        Pare de se sentir perdido nas aulas.
+      </p>
+
+      <GoldButton
+        onClick={() =>
+          document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })
+        }
+        className="
+          mx-auto w-full sm:w-auto
+          !text-base sm:!text-xl
+          !px-8 sm:!px-12
+          !py-4 sm:!py-6
+          shadow-[0_0_50px_rgba(239,68,68,0.25)]
+        "
+      >
         QUERO COMEÇAR AGORA
       </GoldButton>
     </motion.div>
