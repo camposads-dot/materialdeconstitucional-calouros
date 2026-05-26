@@ -5,22 +5,22 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  CheckCircle2, 
-  ArrowRight, 
-  Star, 
-  Users, 
-  BookOpen, 
-  Scale, 
-  Zap, 
-  ShieldCheck, 
-  Award, 
-  ChevronDown, 
-  Instagram, 
+import {
+  CheckCircle2,
+  ArrowRight,
+  Star,
+  Users,
+  BookOpen,
+  Scale,
+  Zap,
+  ShieldCheck,
+  Award,
+  ChevronDown,
+  Instagram,
   MessageCircle,
   Download,
   Lock,
-} from 'lucide-react';
+} from "lucide-react";
 
 // --- Components ---
 
