@@ -333,17 +333,21 @@ const Hero = () => {
             >
 
               {[
-                "/ebook1.jpg",
-                "/ebook2.jpg",
-                "/ebook3.jpg",
-                "/ebook4.jpg",
-                "/ebook5.jpg",
+                "/amostra1.png",
+                "/amostra2.png",
+                "/amostra3.png",
+                "/amostra4.png",
+                "/amostra5.png",
+                "/amostra6.png",
+                "/amostra7.png",
 
-                "/ebook1.jpg",
-                "/ebook2.jpg",
-                "/ebook3.jpg",
-                "/ebook4.jpg",
-                "/ebook5.jpg",
+                "/amostra1.png",
+                "/amostra2.png",
+                "/amostra3.png",
+                "/amostra4.png",
+                "/amostra5.png",
+                "/amostra6.png",
+                "/amostra7.png",
               ].map((img, i) => (
 
                 <div
@@ -359,19 +363,20 @@ const Hero = () => {
                 >
 
                   <img
-                    src={img}
-                    alt=""
-                    className="
-                      w-[140px]
-                      h-[200px]
+  src={img}
+  alt=""
+  className="
+    w-[140px]
+    h-[200px]
 
-                      sm:w-[210px]
-                      sm:h-[300px]
+    sm:w-[210px]
+    sm:h-[300px]
 
-                      object-cover
-                      object-top
-                    "
-                  />
+    object-cover
+    object-top
+    scale-110
+  "
+/>
 
                 </div>
 
