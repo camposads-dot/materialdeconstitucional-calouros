@@ -571,7 +571,7 @@ const WhatYouWillLearn = () => (
 
         <iframe
           className="absolute inset-0 w-full h-full"
-          src="https://www.youtube.com/embed/IDegGktaAjM?si=Nwdzcsx6SsQ8Kvgn"
+          src="https://www.youtube.com/embed/F72dhM-COD8?si=EdMcQgCV2tPZpMul"
           title="Apresentação do material"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
